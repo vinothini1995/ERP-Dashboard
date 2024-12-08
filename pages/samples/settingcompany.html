@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Company Form with Images</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .header-image {
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .side-image {
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <!-- Page Header with Image -->
+    <div class="text-center mb-4">
+      <img src="/images/Vinoimages/setting1.jpg" alt="Company Header" class="img-fluid header-image">
+    </div>
+
+    <!-- Form Section -->
+    <h2 class="text-center mb-4">Settings</h2>
+    <form>
+      <!-- Company Details Section -->
+      <div class="card shadow p-4">
+        <div class="row">
+          <!-- Form Content -->
+          <div class="col-md-8">
+            <h4 class="mb-3">Company Details</h4>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="companyName">Company Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="companyName" placeholder="Enter company name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="companyEmail">Company Email ID <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="companyEmail" placeholder="Enter email address" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="companyMobile">Company Mobile Number(s) <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="companyMobile" placeholder="Add at least one mobile number" required>
+                <small class="form-text text-muted">Use commas to separate multiple numbers.</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="companyAddress">Company Address <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="companyAddress" rows="3" placeholder="Enter company address" required></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="logo">Upload Company Logo <span class="text-danger">*</span></label>
+                <input type="file" class="form-control-file" id="logo" accept="image/*" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Image -->
+          <div class="col-md-4">
+            <img src="/images/Vinoimages/setting2.avif" alt="Company Illustration" class="img-fluid side-image">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bank Details Section -->
+      <div class="card shadow p-4 mt-4">
+        <h4 class="mb-3">Bank Details</h4>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="bankName">Bank Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="bankName" placeholder="Enter bank name" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="accName">Account Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="accName" placeholder="Enter account holder's name" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="accNumber">Account Number <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="accNumber" placeholder="Enter account number" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="branchName">Branch Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="branchName" placeholder="Enter branch name" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="ifscCode">IFSC Code</label>
+            <input type="text" class="form-control" id="ifscCode" placeholder="Enter IFSC code">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="micr">MICR</label>
+            <input type="text" class="form-control" id="micr" placeholder="Enter MICR code">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="branchCode">Branch Code</label>
+            <input type="text" class="form-control" id="branchCode" placeholder="Enter branch code">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="swiftCode">SWIFT Code</label>
+            <input type="text" class="form-control" id="swiftCode" placeholder="Enter SWIFT code">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tax Information Section -->
+      <div class="card shadow p-4 mt-4">
+        <h4 class="mb-3">Tax Information</h4>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="gstNo">GST Number <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="gstNo" placeholder="Enter GST number" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="panNo">PAN Number <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="panNo" placeholder="Enter PAN number" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary px-5">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

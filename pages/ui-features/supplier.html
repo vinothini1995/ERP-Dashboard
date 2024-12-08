@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supplier Page - ERP Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Custom Styles -->
+  <style>
+    .action-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .table-container {
+      overflow-x: auto;
+    }
+    .pagination {
+      justify-content: center;
+    }
+    .btn-add-import {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .total-balance {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (Parties Menu) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dashboard-Parties-Supplier</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Main Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Parties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Supplier Page Content -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Supplier Information</h2>
+
+    <!-- To Collect and To Pay Section -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="alert alert-success text-center">
+          <h5>To Collect</h5>
+          <p class="fs-4">$12,000</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="alert alert-danger text-center">
+          <h5>To Pay</h5>
+          <p class="fs-4">$8,500</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add and Import Buttons -->
+    <div class="btn-add-import">
+      <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Supplier</button>
+      <button class="btn btn-secondary"><i class="fas fa-file-import"></i> Import Suppliers</button>
+    </div>
+
+    <!-- Search Box -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <input type="text" class="form-control" placeholder="Search by name, email, or status">
+      </div>
+    </div>
+
+    <!-- Supplier Table -->
+    <div class="table-container">
+      <table class="table table-bordered table-striped">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+            <th>Balance</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example Rows -->
+          <tr>
+            <td>1</td>
+            <td>Supplier A</td>
+            <td>supplierA@example.com</td>
+            <td>2024-12-01</td>
+            <td>$1,500</td>
+            <td><span class="badge bg-success">Active</span></td>
+            <td class="action-icons">
+              <a href="#" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+              <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Supplier B</td>
+            <td>supplierB@example.com</td>
+            <td>2024-11-28</td>
+            <td>$2,300</td>
+            <td><span class="badge bg-warning">Pending</span></td>
+            <td class="action-icons">
+              <a href="#" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+              <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          <!-- Additional rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Total Balance Display -->
+    <div class="text-end total-balance">
+      <p>Total Balance on this page: $3,800</p>
+    </div>
+
+    <!-- Pagination -->
+    <nav>
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light text-dark text-center py-4 mt-5">
+    <p>&copy; 2025 ERP Dashboard. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management - Inventory</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Custom Styles -->
+  <style>
+    .form-section {
+      margin-bottom: 20px;
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .table-container {
+      margin-top: 20px;
+    }
+    .pagination {
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ERP Inventory Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Inventory</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Page Content -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Product Management</h2>
+
+    <!-- Product Form -->
+    <form>
+      <div class="form-section">
+        <h5>Product Details</h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="productName" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="barcode" class="form-label">Product Barcode</label>
+            <input type="text" class="form-control" id="barcode" placeholder="Enter barcode">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="productType" class="form-label">Product Type</label>
+            <input type="text" class="form-control" id="productType" placeholder="Enter product type">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="binAllocation" class="form-label">Bin Allocation</label>
+            <input type="text" class="form-control" id="binAllocation" placeholder="Enter bin allocation">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stock and Quality -->
+      <div class="form-section">
+        <h5>Stock and Quality</h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" class="form-control" id="category" placeholder="Enter product category">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="brand" class="form-label">Brand</label>
+            <input type="text" class="form-control" id="brand" placeholder="Enter product brand">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="stock" class="form-label">Stock Quantity</label>
+            <input type="number" class="form-control" id="stock" placeholder="Enter stock quantity">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="qualityCheck" class="form-label">Quality Check Status</label>
+            <select class="form-select" id="qualityCheck">
+              <option value="">Select</option>
+              <option value="approved">Approved</option>
+              <option value="pending">Pending</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- File Uploads -->
+      <div class="form-section">
+        <h5>File Uploads</h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="ewayBill" class="form-label">Eway Bill</label>
+            <input type="file" class="form-control" id="ewayBill">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="contractFile" class="form-label">Additional Contract Files</label>
+            <input type="file" class="form-control" id="contractFile">
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit and Reset -->
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-success">Save Product</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+      </div>
+    </form>
+
+    <!-- Product Table -->
+    <div class="table-container">
+      <h4 class="mt-5">Products List</h4>
+      <table class="table table-bordered table-striped mt-3">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Barcode</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Stock</th>
+            <th>Quality Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody">
+          <!-- Sample Row -->
+          <tr>
+            <td>1</td>
+            <td>Sample Product</td>
+            <td>123456789</td>
+            <td>Electronics</td>
+            <td>Sample Brand</td>
+            <td>50</td>
+            <td>Approved</td>
+            <td>
+              <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
+              <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Sample Product</td>
+            <td>123456789</td>
+            <td>Electronics</td>
+            <td>Sample Brand</td>
+            <td>50</td>
+            <td>Approved</td>
+            <td>
+              <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
+              <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Pagination -->
+      <nav>
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-4 mt-5">
+    <p>&copy; 2025 ERP Inventory Dashboard. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

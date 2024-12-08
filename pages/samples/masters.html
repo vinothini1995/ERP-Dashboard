@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masters - Settings</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+    .sidebar {
+      height: 100vh;
+      background-color: #343a40;
+      color: white;
+      position: fixed;
+      width: 250px;
+      top: 0;
+      left: 0;
+      padding-top: 30px;
+    }
+    .sidebar a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .main-content {
+      margin-left: 260px;
+      padding: 30px;
+    }
+    .section-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+    .section-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .section-card .btn {
+      background-color: #007bff;
+      color: white;
+    }
+    .section-card table th, .section-card table td {
+      vertical-align: middle;
+    }
+    .card-header {
+      background-color: #f8f9fa;
+      border-bottom: 2px solid #007bff;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .modal-body {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2 class="text-center text-white">Settings-Masters</h2>
+    <a href="#categorySection">Category</a>
+    <a href="#unitsSection">Units</a>
+    <a href="#majorHeadsSection">Major Heads</a>
+    <a href="#colorSection">Color</a>
+    <a href="#positionSection">Position</a>
+    <a href="#volumeSection">Volume</a>
+    <a href="#taxesSection">Taxes</a>
+    <a href="#currenciesSection">Currencies</a>
+    <a href="#paymentModesSection">Payment Modes</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Category Section -->
+    <div id="categorySection" class="section-card">
+      <div class="card-header">
+        <h3>Category</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+        <i class="fas fa-plus-circle"></i> Add New Category
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Category Name</th>
+            <th>Sub Category Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="categoryTableBody">
+          <!-- Dynamic category rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Units Section -->
+    <div id="unitsSection" class="section-card">
+      <div class="card-header">
+        <h3>Units</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUnitModal">
+        <i class="fas fa-plus-circle"></i> Add New Unit
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Unit Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="unitTableBody">
+          <!-- Dynamic unit rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Major Heads Section -->
+    <div id="majorHeadsSection" class="section-card">
+      <div class="card-header">
+        <h3>Major Heads</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addMajorHeadModal">
+        <i class="fas fa-plus-circle"></i> Add New Major Head
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Major Head</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="majorHeadTableBody">
+          <!-- Dynamic major head rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Color Section -->
+    <div id="colorSection" class="section-card">
+      <div class="card-header">
+        <h3>Color</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addColorModal">
+        <i class="fas fa-plus-circle"></i> Add New Color
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Color Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="colorTableBody">
+          <!-- Dynamic color rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Position Section -->
+    <div id="positionSection" class="section-card">
+      <div class="card-header">
+        <h3>Position</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addPositionModal">
+        <i class="fas fa-plus-circle"></i> Add New Position
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Position Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="positionTableBody">
+          <!-- Dynamic position rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Volume Section -->
+    <div id="volumeSection" class="section-card">
+      <div class="card-header">
+        <h3>Volume</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addVolumeModal">
+        <i class="fas fa-plus-circle"></i> Add New Volume
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Volume Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="volumeTableBody">
+          <!-- Dynamic volume rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Taxes Section -->
+    <div id="taxesSection" class="section-card">
+      <div class="card-header">
+        <h3>Taxes</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addTaxModal">
+        <i class="fas fa-plus-circle"></i> Add New Tax
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tax Name</th>
+            <th>Percentage</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="taxTableBody">
+          <!-- Dynamic tax rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Currencies Section -->
+    <div id="currenciesSection" class="section-card">
+      <div class="card-header">
+        <h3>Currencies</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCurrencyModal">
+        <i class="fas fa-plus-circle"></i> Add New Currency
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Currency Name</th>
+            <th>Currency Symbol</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="currencyTableBody">
+          <!-- Dynamic currency rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Payment Modes Section -->
+    <div id="paymentModesSection" class="section-card">
+      <div class="card-header">
+        <h3>Payment Modes</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addPaymentModeModal">
+        <i class="fas fa-plus-circle"></i> Add New Payment Mode
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Mode Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="paymentModeTableBody">
+          <!-- Dynamic payment mode rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS and Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    // Example of handling form submissions for dynamic rows
+    document.querySelectorAll(".section-card form").forEach(function(form) {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const tableBody = form.closest(".section-card").querySelector("tbody");
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+          <td>1</td>
+          <td>${form.querySelector(".form-control").value}</td>
+          <td><button class="btn btn-warning btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+        `;
+        tableBody.appendChild(newRow);
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>

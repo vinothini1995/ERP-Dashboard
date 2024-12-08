@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roles & Permissions</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Custom Styles */
+    .section-title {
+      margin: 20px 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-bottom: 2px solid #007bff;
+    }
+    .table-responsive {
+      margin-top: 20px;
+    }
+    .form-section {
+      margin-bottom: 40px;
+    }
+    .pagination-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .pagination-container .pagination {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dashboard-Roles&Permissions</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container mt-4">
+    <!-- Roles Table Section -->
+    <div class="form-section">
+      <h2 class="section-title">Manage Roles</h2>
+
+      <!-- Add New Role Button -->
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addRoleModal">
+        <i class="fas fa-plus-circle"></i> Add New Role
+      </button>
+
+      <!-- Roles Table -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Role Name</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rolesTableBody">
+            <tr>
+              <td>1</td>
+              <td>Admin</td>
+              <td>Has full access to all settings and management</td>
+              <td>
+                <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editRoleModal">
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+                <button class="btn btn-sm btn-danger">
+                  <i class="fas fa-trash"></i> Delete
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Editor</td>
+              <td>Can edit content and manage user profiles</td>
+              <td>
+                <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editRoleModal">
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+                <button class="btn btn-sm btn-danger">
+                  <i class="fas fa-trash"></i> Delete
+                </button>
+              </td>
+            </tr>
+            <!-- More rows can be added dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <!-- Add more pages as needed -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Add Role Modal -->
+  <div class="modal fade" id="addRoleModal" tabindex="-1" aria-labelledby="addRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addRoleModalLabel">Add New Role</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addRoleForm">
+            <div class="mb-3">
+              <label for="roleName" class="form-label">Role Name</label>
+              <input type="text" class="form-control" id="roleName" placeholder="Enter role name" required>
+            </div>
+            <div class="mb-3">
+              <label for="roleDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="roleDescription" rows="3" placeholder="Enter role description" required></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="saveRoleBtn">Save Role</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Role Modal -->
+  <div class="modal fade" id="editRoleModal" tabindex="-1" aria-labelledby="editRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editRoleModalLabel">Edit Role</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editRoleForm">
+            <div class="mb-3">
+              <label for="editRoleName" class="form-label">Role Name</label>
+              <input type="text" class="form-control" id="editRoleName" value="Editor" required>
+            </div>
+            <div class="mb-3">
+              <label for="editRoleDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="editRoleDescription" rows="3" required>Can edit content and manage user profiles</textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveEditedRoleBtn">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light text-black text-center py-3 mt-5">
+    <p>&copy; 2025 Roles & Permissions Management. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('saveRoleBtn').addEventListener('click', function() {
+      const roleName = document.getElementById('roleName').value;
+      const roleDescription = document.getElementById('roleDescription').value;
+      const tableBody = document.getElementById('rolesTableBody');
+      
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>#</td>
+        <td>${roleName}</td>
+        <td>${roleDescription}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editRoleModal">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn btn-sm btn-danger">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </td>
+      `;
+      tableBody.appendChild(newRow);
+      document.getElementById('addRoleForm').reset();
+      document.querySelector('.btn-close').click();
+    });
+
+    document.getElementById('saveEditedRoleBtn').addEventListener('click', function() {
+      const roleName = document.getElementById('editRoleName').value;
+      const roleDescription = document.getElementById('editRoleDescription').value;
+
+      // Update the role in the table (this could be more dynamic with the actual row in context)
+      // For simplicity, we are just using a placeholder method here
+
+      document.querySelector('.btn-close').click();
+    });
+  </script>
+</body>
+</html>

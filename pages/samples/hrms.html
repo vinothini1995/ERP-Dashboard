@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRMS Dashboard</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+    .sidebar {
+      height: 100vh;
+      background-color: #343a40;
+      color: white;
+      position: fixed;
+      width: 250px;
+      top: 0;
+      left: 0;
+      padding-top: 30px;
+    }
+    .sidebar a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .main-content {
+      margin-left: 260px;
+      padding: 30px;
+    }
+    .section-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+    .section-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .section-card .btn {
+      background-color: #007bff;
+      color: white;
+    }
+    .section-card table th, .section-card table td {
+      vertical-align: middle;
+    }
+    .card-header {
+      background-color: #f8f9fa;
+      border-bottom: 2px solid #007bff;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .modal-body {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2 class="text-center text-white">HRMS Dashboard</h2>
+    <a href="#jobRequirement">Job Requirement</a>
+    <a href="#employeeList">Employee List</a>
+    <a href="#attendance">Attendance</a>
+    <a href="#leaveShiftManagement">Leave/Shift Management</a>
+    <a href="#payroll">Payroll</a>
+    <a href="#announcement">Announcement</a>
+    <a href="#userManagement">User Management</a>
+    <a href="#performanceAnalysis">Performance Analysis</a>
+    <a href="#employeeHealthReport">Employee Health Report</a>
+    <a href="#idCard">ID Card</a>
+    <a href="#helpDesk">HR Help Desk</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Job Requirement Form -->
+    <div id="jobRequirement" class="section-card">
+      <div class="card-header">
+        <h3>Job Requirement</h3>
+      </div>
+      <form>
+        <div class="mb-3">
+          <label for="jobTitle" class="form-label">Job Title</label>
+          <input type="text" class="form-control" id="jobTitle" required>
+        </div>
+        <div class="mb-3">
+          <label for="jobDescription" class="form-label">Job Description</label>
+          <textarea class="form-control" id="jobDescription" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="jobLocation" class="form-label">Location</label>
+          <input type="text" class="form-control" id="jobLocation" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Post Job Requirement</button>
+      </form>
+    </div>
+
+    <!-- Employee List Form -->
+    <div id="employeeList" class="section-card">
+      <div class="card-header">
+        <h3>Employee List</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
+        <i class="fas fa-plus-circle"></i> Add Employee
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Position</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+          <!-- Dynamic employee rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Attendance Settings -->
+    <div id="attendance" class="section-card">
+      <div class="card-header">
+        <h3>Attendance Settings</h3>
+      </div>
+      <form>
+        <div class="mb-3">
+          <label for="attendanceTime" class="form-label">Time In</label>
+          <input type="time" class="form-control" id="attendanceTime" required>
+        </div>
+        <div class="mb-3">
+          <label for="attendanceOutTime" class="form-label">Time Out</label>
+          <input type="time" class="form-control" id="attendanceOutTime" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Attendance Settings</button>
+      </form>
+    </div>
+
+    <!-- Leave/Shift Management -->
+    <div id="leaveShiftManagement" class="section-card">
+      <div class="card-header">
+        <h3>Leave/Shift Management</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#manageLeaveShiftModal">
+        <i class="fas fa-calendar-alt"></i> Manage Leave/Shift
+      </button>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Employee</th>
+            <th>Leave/Shift Type</th>
+            <th>Dates</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="leaveShiftTableBody">
+          <!-- Dynamic leave/shift rows go here -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Payroll / Allowance -->
+    <div id="payroll" class="section-card">
+      <div class="card-header">
+        <h3>Payroll</h3>
+      </div>
+      <form>
+        <div class="mb-3">
+          <label for="employeeSalary" class="form-label">Salary Based on Attendance</label>
+          <input type="number" class="form-control" id="employeeSalary" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Salary Slip</button>
+      </form>
+    </div>
+
+    <!-- Announcement (Push Notification) -->
+    <div id="announcement" class="section-card">
+      <div class="card-header">
+        <h3>Announcement</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#sendAnnouncementModal">
+        <i class="fas fa-bell"></i> Send Announcement
+      </button>
+    </div>
+
+    <!-- User Management (Roles & Permissions) -->
+    <div id="userManagement" class="section-card">
+      <div class="card-header">
+        <h3>User Management</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#userRolesModal">
+        <i class="fas fa-users-cog"></i> Manage Roles and Permissions
+      </button>
+    </div>
+
+    <!-- Performance Analysis -->
+    <div id="performanceAnalysis" class="section-card">
+      <div class="card-header">
+        <h3>Performance Analysis</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#performanceReportModal">
+        <i class="fas fa-chart-line"></i> View Performance Reports
+      </button>
+    </div>
+
+    <!-- Employee Health Report -->
+    <div id="employeeHealthReport" class="section-card">
+      <div class="card-header">
+        <h3>Employee Health Report</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#uploadHealthReportModal">
+        <i class="fas fa-file-upload"></i> Upload Health Report
+      </button>
+    </div>
+
+    <!-- ID Card Generation -->
+    <div id="idCard" class="section-card">
+      <div class="card-header">
+        <h3>Generate ID Card</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#generateIdCardModal">
+        <i class="fas fa-id-card"></i> Generate ID Card
+      </button>
+    </div>
+
+    <!-- HR Help Desk -->
+    <div id="helpDesk" class="section-card">
+      <div class="card-header">
+        <h3>HR Help Desk</h3>
+      </div>
+      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#hrHelpDeskModal">
+        <i class="fas fa-headset"></i> View Help Desk
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS and Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

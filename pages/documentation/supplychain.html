@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supply Chain Management</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fc;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      height: 100vh;
+      background-color: #1f1f1f;
+      color: white;
+      position: fixed;
+      width: 250px;
+      top: 0;
+      left: 0;
+      padding-top: 40px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .sidebar h2 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .sidebar a {
+      color: white;
+      padding: 12px 15px;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+    .sidebar a:hover {
+      background-color: #007bff;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 270px;
+      padding: 40px;
+    }
+
+    /* Table Styling */
+    table th, table td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    /* Card Style */
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+    .card-header {
+      background-color: #f1f1f1;
+      font-size: 1.5rem;
+      padding: 15px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    /* Button Styling */
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Supply Chain Management</h2>
+    <a href="#vehicleTable">Vehicles</a>
+    <a href="#porterTable">Porters</a>
+    <a href="#deliveryTable">Deliveries</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Vehicles Table -->
+    <div id="vehicleTable" class="card">
+      <div class="card-header">
+        Vehicles
+        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addVehicleModal">Add Vehicle</button>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Vehicle Number</th>
+              <th>Vehicle Type</th>
+              <th>Capacity (kg)</th>
+              <th>Driver Name</th>
+              <th>Contact Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Vehicle Rows (Example) -->
+            <tr>
+              <td>1</td>
+              <td>ABC123</td>
+              <td>Truck</td>
+              <td>1000</td>
+              <td>John Doe</td>
+              <td>1234567890</td>
+              <td>
+                <button class="btn btn-warning btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+            <!-- Additional rows will go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Porters Table -->
+    <div id="porterTable" class="card">
+      <div class="card-header">
+        Porters
+        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addPorterModal">Add Porter</button>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Porter Name</th>
+              <th>Age</th>
+              <th>Contact Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Porter Rows (Example) -->
+            <tr>
+              <td>1</td>
+              <td>Jane Smith</td>
+              <td>25</td>
+              <td>9876543210</td>
+              <td>
+                <button class="btn btn-warning btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+            <!-- Additional rows will go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deliveries Table -->
+    <div id="deliveryTable" class="card">
+      <div class="card-header">
+        Deliveries
+        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addDeliveryModal">Add Delivery</button>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Delivery Order Number</th>
+              <th>Product Details</th>
+              <th>Vehicle Details</th>
+              <th>Porter Assigned</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Delivery Rows (Example) -->
+            <tr>
+              <td>1</td>
+              <td>DO12345</td>
+              <td>Product A, Product B</td>
+              <td>Truck ABC123</td>
+              <td>John Doe</td>
+              <td>
+                <button class="btn btn-warning btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+            <!-- Additional rows will go here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal for Adding Vehicle -->
+  <div class="modal fade" id="addVehicleModal" tabindex="-1" aria-labelledby="addVehicleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addVehicleModalLabel">Add Vehicle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="vehicleNumber" class="form-label">Vehicle Number</label>
+              <input type="text" class="form-control" id="vehicleNumber">
+            </div>
+            <div class="mb-3">
+              <label for="vehicleType" class="form-label">Vehicle Type</label>
+              <input type="text" class="form-control" id="vehicleType">
+            </div>
+            <div class="mb-3">
+              <label for="capacity" class="form-label">Capacity (kg)</label>
+              <input type="number" class="form-control" id="capacity">
+            </div>
+            <div class="mb-3">
+              <label for="driverName" class="form-label">Driver Name</label>
+              <input type="text" class="form-control" id="driverName">
+            </div>
+            <div class="mb-3">
+              <label for="contactNumber" class="form-label">Contact Number</label>
+              <input type="text" class="form-control" id="contactNumber">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Vehicle</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Adding Porter (similar to Vehicle Modal) -->
+
+  <!-- Modal for Adding Delivery (similar to Vehicle Modal) -->
+
+  <!-- Bootstrap JS and Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

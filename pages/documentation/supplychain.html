@@ -1,267 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supply Chain Management</title>
-  <!-- Bootstrap 5.3 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    /* Custom Styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f7fc;
-    }
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ERP</title>
+  <!-- <base href="https://vinothini1995.github.io/ERP-Dashboard/"> -->
 
-    /* Sidebar */
-    .sidebar {
-      height: 100vh;
-      background-color: #1f1f1f;
-      color: white;
-      position: fixed;
-      width: 250px;
-      top: 0;
-      left: 0;
-      padding-top: 40px;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .sidebar h2 {
-      font-size: 24px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .sidebar a {
-      color: white;
-      padding: 12px 15px;
-      text-decoration: none;
-      display: block;
-      margin: 5px 0;
-      border-radius: 5px;
-    }
-    .sidebar a:hover {
-      background-color: #007bff;
-    }
-
-    /* Main Content */
-    .main-content {
-      margin-left: 270px;
-      padding: 40px;
-    }
-
-    /* Table Styling */
-    table th, table td {
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    /* Card Style */
-    .card {
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      background-color: #fff;
-    }
-    .card-header {
-      background-color: #f1f1f1;
-      font-size: 1.5rem;
-      padding: 15px;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-
-    /* Button Styling */
-    .btn-primary {
-      background-color: #007bff;
-      border: none;
-      color: white;
-    }
-    .btn-primary:hover {
-      background-color: #0056b3;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 100%;
-        height: auto;
-      }
-      .main-content {
-        margin-left: 0;
-        padding: 20px;
-      }
-    }
-  </style>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/images/favicon.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>Supply Chain Management</h2>
-    <a href="#vehicleTable">Vehicles</a>
-    <a href="#porterTable">Porters</a>
-    <a href="#deliveryTable">Deliveries</a>
-  </div>
-
-  <!-- Main Content -->
-  <div class="main-content">
-
-    <!-- Vehicles Table -->
-    <div id="vehicleTable" class="card">
-      <div class="card-header">
-        Vehicles
-        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addVehicleModal">Add Vehicle</button>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="/index.html"><img src="/images/Vinoimages/logo2.jpg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="/index.html"><img src="/images/Vinoimages/logo2.jpg" alt="logo"/></a>
       </div>
-      <div class="card-body">
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Vehicle Number</th>
-              <th>Vehicle Type</th>
-              <th>Capacity (kg)</th>
-              <th>Driver Name</th>
-              <th>Contact Number</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Vehicle Rows (Example) -->
-            <tr>
-              <td>1</td>
-              <td>ABC123</td>
-              <td>Truck</td>
-              <td>1000</td>
-              <td>John Doe</td>
-              <td>1234567890</td>
-              <td>
-                <button class="btn btn-warning btn-sm">Edit</button>
-                <button class="btn btn-danger btn-sm">Delete</button>
-              </td>
-            </tr>
-            <!-- Additional rows will go here -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Porters Table -->
-    <div id="porterTable" class="card">
-      <div class="card-header">
-        Porters
-        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addPorterModal">Add Porter</button>
-      </div>
-      <div class="card-body">
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Porter Name</th>
-              <th>Age</th>
-              <th>Contact Number</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Porter Rows (Example) -->
-            <tr>
-              <td>1</td>
-              <td>Jane Smith</td>
-              <td>25</td>
-              <td>9876543210</td>
-              <td>
-                <button class="btn btn-warning btn-sm">Edit</button>
-                <button class="btn btn-danger btn-sm">Delete</button>
-              </td>
-            </tr>
-            <!-- Additional rows will go here -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Deliveries Table -->
-    <div id="deliveryTable" class="card">
-      <div class="card-header">
-        Deliveries
-        <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addDeliveryModal">Add Delivery</button>
-      </div>
-      <div class="card-body">
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Delivery Order Number</th>
-              <th>Product Details</th>
-              <th>Vehicle Details</th>
-              <th>Porter Assigned</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Delivery Rows (Example) -->
-            <tr>
-              <td>1</td>
-              <td>DO12345</td>
-              <td>Product A, Product B</td>
-              <td>Truck ABC123</td>
-              <td>John Doe</td>
-              <td>
-                <button class="btn btn-warning btn-sm">Edit</button>
-                <button class="btn btn-danger btn-sm">Delete</button>
-              </td>
-            </tr>
-            <!-- Additional rows will go here -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Modal for Adding Vehicle -->
-  <div class="modal fade" id="addVehicleModal" tabindex="-1" aria-labelledby="addVehicleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addVehicleModalLabel">Add Vehicle</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="vehicleNumber" class="form-label">Vehicle Number</label>
-              <input type="text" class="form-control" id="vehicleNumber">
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
             </div>
-            <div class="mb-3">
-              <label for="vehicleType" class="form-label">Vehicle Type</label>
-              <input type="text" class="form-control" id="vehicleType">
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="ti-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
             </div>
-            <div class="mb-3">
-              <label for="capacity" class="form-label">Capacity (kg)</label>
-              <input type="number" class="form-control" id="capacity">
+          </li>
+          <li class="nav-item">
+            <a href="/pages/samples/Login.html" class="btn btn-primary">Login</a>
+          </li>
+                    <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="/images/faces/face28.jpg" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
             </div>
-            <div class="mb-3">
-              <label for="driverName" class="form-label">Driver Name</label>
-              <input type="text" class="form-control" id="driverName">
-            </div>
-            <div class="mb-3">
-              <label for="contactNumber" class="form-label">Contact Number</label>
-              <input type="text" class="form-control" id="contactNumber">
-            </div>
-            <button type="submit" class="btn btn-primary">Add Vehicle</button>
-          </form>
+          </li>
+      </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+      
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <div class="layout">
 
-  <!-- Modal for Adding Porter (similar to Vehicle Modal) -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar" href="/css/">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="form-elements">
+              <i class="fa-solid fa-user menu-icon"></i>
+              <span class="menu-title">Parties</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/customer.html">Customer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/supplier.html">Supplier</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/distributor.html">Distributor</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="fa-solid fa-truck-moving menu-icon"></i>              <span class="menu-title">inventory</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/pages/forms/product.html">Products</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/supplier.html" aria-expanded="false" aria-controls="charts">
+              <i class="fa-solid fa-person menu-icon"></i>              <span class="menu-title">Supplier</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/sales.html">Sales</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/tables/financeadmin.html" aria-expanded="false" aria-controls="tables">
+              <i class="fa-solid fa-coins menu-icon"></i>              <span class="menu-title">Finance/Admin</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/charts/sales.html" aria-expanded="false" aria-controls="icons">
+              <i class="fa-brands fa-adversal menu-icon"></i>                 <span class="menu-title">Sales</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Settings</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/settingcompany.html"> Company Settings </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/rolesandpermission.html"> Roles and Permissions </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/masters.html"> Masters</a></li>
 
-  <!-- Modal for Adding Delivery (similar to Vehicle Modal) -->
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/samples/hrms.html" aria-expanded="false" aria-controls="error">
+              <i class="fa-solid fa-bars menu-icon"></i>              <span class="menu-title">HRMS</span>
+            </a>
+           
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/documentation.html">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">My Space</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/supplychain.html">
+              <i class="fa-solid fa-industry menu-icon" ></i>              <span class="menu-title">Supply Chain</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      </div>
+    
 
-  <!-- Bootstrap JS and Dependencies -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- plugins:js -->
+  <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/vendors/chart.js/Chart.min.js"></script>
+  <script src="/vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="/js/dataTables.select.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/hoverable-collapse.js"></script>
+  <script src="/js/template.js"></script>
+  <script src="/js/settings.js"></script>
+  <script src="/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
 </body>
+
 </html>
+

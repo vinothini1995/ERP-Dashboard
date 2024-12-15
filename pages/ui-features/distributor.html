@@ -1,181 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Distributor Page - ERP Dashboard</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Custom Styles -->
-  <style>
-    .form-section {
-      margin-bottom: 20px;
-      background-color: #f8f9fa;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ERP</title>
+  <!-- <base href="https://vinothini1995.github.io/ERP-Dashboard/"> -->
+
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/images/favicon.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Dashboard-Parties-Distributors</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/index.html">Main Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Parties</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Settings</a>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="/index.html"><img src="/images/Vinoimages/logo2.jpg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="/index.html"><img src="/images/Vinoimages/logo2.jpg" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+            </div>
           </li>
         </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="ti-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="/pages/samples/Login.html" class="btn btn-primary">Login</a>
+          </li>
+                    <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="/images/faces/face28.jpg" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+      </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
       </div>
-    </div>
-  </nav>
-
-  <!-- Distributor Page Content -->
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Distributor Information</h2>
-
-    <!-- Distributor Form -->
-    <form>
-      <!-- Branch Selection -->
-      <div class="form-section">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="branch" class="form-label">Select Branch</label>
-            <select class="form-select" id="branch">
-              <option value="">Select</option>
-              <option value="branch1">Branch 1</option>
-              <option value="branch2">Branch 2</option>
-            </select>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="type" class="form-label">Distributor Type</label>
-            <select class="form-select" id="type">
-              <option value="general">General Distributor</option>
-              <option value="branch_distributor">Branch Distributor</option>
-            </select>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
           </div>
         </div>
       </div>
+      
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <div class="layout">
 
-      <!-- Distributor Details -->
-      <div class="form-section">
-        <h5>Distributor Details</h5>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="distributorName" class="form-label">Distributor Name</label>
-            <input type="text" class="form-control" id="distributorName" placeholder="Enter distributor name">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="email" class="form-label">Email ID</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="website" class="form-label">Website</label>
-            <input type="url" class="form-control" id="website" placeholder="Enter website URL">
-          </div>
-        </div>
+      <nav class="sidebar sidebar-offcanvas" id="sidebar" href="/css/">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="form-elements">
+              <i class="fa-solid fa-user menu-icon"></i>
+              <span class="menu-title">Parties</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/customer.html">Customer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/supplier.html">Supplier</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/distributor.html">Distributor</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="fa-solid fa-truck-moving menu-icon"></i>              <span class="menu-title">inventory</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/pages/forms/product.html">Products</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/supplier.html" aria-expanded="false" aria-controls="charts">
+              <i class="fa-solid fa-person menu-icon"></i>              <span class="menu-title">Supplier</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/sales.html">Sales</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/tables/financeadmin.html" aria-expanded="false" aria-controls="tables">
+              <i class="fa-solid fa-coins menu-icon"></i>              <span class="menu-title">Finance/Admin</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/charts/sales.html" aria-expanded="false" aria-controls="icons">
+              <i class="fa-brands fa-adversal menu-icon"></i>                 <span class="menu-title">Sales</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Settings</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/settingcompany.html"> Company Settings </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/rolesandpermission.html"> Roles and Permissions </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/masters.html"> Masters</a></li>
+
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/samples/hrms.html" aria-expanded="false" aria-controls="error">
+              <i class="fa-solid fa-bars menu-icon"></i>              <span class="menu-title">HRMS</span>
+            </a>
+           
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/documentation.html">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">My Space</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/supplychain.html">
+              <i class="fa-solid fa-industry menu-icon" ></i>              <span class="menu-title">Supply Chain</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
       </div>
+    
 
-      <!-- Contact Person Details -->
-      <div class="form-section">
-        <h5>Contact Person Details</h5>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="contactName" class="form-label">Contact Person Name</label>
-            <input type="text" class="form-control" id="contactName" placeholder="Enter contact person name">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="designation" class="form-label">Designation</label>
-            <input type="text" class="form-control" id="designation" placeholder="Enter designation">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="contactEmail" class="form-label">Contact Email ID</label>
-            <input type="email" class="form-control" id="contactEmail" placeholder="Enter contact email">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="contactPhone" class="form-label">Contact Phone Number</label>
-            <input type="tel" class="form-control" id="contactPhone" placeholder="Enter contact phone number">
-          </div>
-        </div>
-      </div>
+  <!-- plugins:js -->
+  <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/vendors/chart.js/Chart.min.js"></script>
+  <script src="/vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="/js/dataTables.select.min.js"></script>
 
-      <!-- Tax Information -->
-      <div class="form-section">
-        <h5>Tax Information</h5>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="gst" class="form-label">GST No</label>
-            <input type="text" class="form-control" id="gst" placeholder="Enter GST number">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="pan" class="form-label">PAN No</label>
-            <input type="text" class="form-control" id="pan" placeholder="Enter PAN number">
-          </div>
-        </div>
-      </div>
-
-      <!-- Address Information -->
-      <div class="form-section">
-        <h5>Address Information</h5>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="billingAddress" class="form-label">Billing Address</label>
-            <textarea class="form-control" id="billingAddress" rows="3" placeholder="Enter billing address"></textarea>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="shippingAddress" class="form-label">Shipping Address</label>
-            <textarea class="form-control" id="shippingAddress" rows="3" placeholder="Enter shipping address"></textarea>
-          </div>
-        </div>
-      </div>
-
-      <!-- Image and Contract -->
-      <div class="form-section">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="image" class="form-label">Distributor Image</label>
-            <input type="file" class="form-control" id="image">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="contract" class="form-label">Contract</label>
-            <input type="file" class="form-control" id="contract">
-          </div>
-        </div>
-      </div>
-
-      <!-- Submit Button -->
-      <div class="text-center mt-4">
-        <button type="submit" class="btn btn-success">Save Distributor</button>
-        <button type="reset" class="btn btn-secondary">Reset</button>
-      </div>
-    </form>
-  </div>
-
-  <!-- Footer -->
-  <footer class="bg-light text-dark text-center py-4 mt-5">
-    <p>&copy; 2025 ERP Dashboard. All Rights Reserved.</p>
-  </footer>
-
-  <!-- Bootstrap JS and Popper.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/hoverable-collapse.js"></script>
+  <script src="/js/template.js"></script>
+  <script src="/js/settings.js"></script>
+  <script src="/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
 </body>
+
 </html>
+

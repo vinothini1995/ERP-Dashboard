@@ -1,320 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Masters - Settings</title>
-  <!-- Bootstrap 5.3 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    /* Custom Styles */
-    body {
-      font-family: 'Arial', sans-serif;
-    }
-    .sidebar {
-      height: 100vh;
-      background-color: #343a40;
-      color: white;
-      position: fixed;
-      width: 250px;
-      top: 0;
-      left: 0;
-      padding-top: 30px;
-    }
-    .sidebar a {
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-      display: block;
-      margin: 5px 0;
-      border-radius: 5px;
-    }
-    .sidebar a:hover {
-      background-color: #495057;
-    }
-    .main-content {
-      margin-left: 260px;
-      padding: 30px;
-    }
-    .section-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-      padding: 20px;
-    }
-    .section-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-    .section-card .btn {
-      background-color: #007bff;
-      color: white;
-    }
-    .section-card table th, .section-card table td {
-      vertical-align: middle;
-    }
-    .card-header {
-      background-color: #f8f9fa;
-      border-bottom: 2px solid #007bff;
-    }
-    .btn-primary {
-      background-color: #007bff;
-      border: none;
-    }
-    .btn-primary:hover {
-      background-color: #0056b3;
-    }
-    .modal-body {
-      max-height: 300px;
-      overflow-y: auto;
-    }
-  </style>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ERP</title>
+  <!-- <base href="https://vinothini1995.github.io/ERP-Dashboard/"> -->
+
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/vendors/feather/feather.css">
+  <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="/js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/images/favicon.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  <style>
+    /* Container Styling */
+    body{
+      background-color: #f9f9f9;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
-  <!-- Sidebar Navigation -->
-  <div class="sidebar">
-    <h2 class="text-center text-white">Settings-Masters</h2>
-    <a href="#categorySection">Category</a>
-    <a href="#unitsSection">Units</a>
-    <a href="#majorHeadsSection">Major Heads</a>
-    <a href="#colorSection">Color</a>
-    <a href="#positionSection">Position</a>
-    <a href="#volumeSection">Volume</a>
-    <a href="#taxesSection">Taxes</a>
-    <a href="#currenciesSection">Currencies</a>
-    <a href="#paymentModesSection">Payment Modes</a>
-  </div>
+    }
+.master-page-container {
+  width: 100vw;
+  max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    
+}
 
-  <!-- Main Content -->
-  <div class="main-content">
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-    <!-- Category Section -->
-    <div id="categorySection" class="section-card">
-      <div class="card-header">
-        <h3>Category</h3>
+/* Form Styling */
+.master-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit Button */
+.form-actions {
+  text-align: center;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo mr-5" href="/index.html"><img src="/images/Vinoimages/logo2.jpg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="/index.html"><img src="/images/Vinoimages/logo2.jpg" alt="logo"/></a>
       </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
-        <i class="fas fa-plus-circle"></i> Add New Category
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Category Name</th>
-            <th>Sub Category Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="categoryTableBody">
-          <!-- Dynamic category rows go here -->
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Units Section -->
-    <div id="unitsSection" class="section-card">
-      <div class="card-header">
-        <h3>Units</h3>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="ti-settings mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="ti-user mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="/pages/samples/Login.html" class="btn btn-primary">Login</a>
+          </li>
+                    <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="/images/faces/face28.jpg" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+      </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
       </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUnitModal">
-        <i class="fas fa-plus-circle"></i> Add New Unit
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Unit Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="unitTableBody">
-          <!-- Dynamic unit rows go here -->
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Major Heads Section -->
-    <div id="majorHeadsSection" class="section-card">
-      <div class="card-header">
-        <h3>Major Heads</h3>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
       </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addMajorHeadModal">
-        <i class="fas fa-plus-circle"></i> Add New Major Head
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Major Head</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="majorHeadTableBody">
-          <!-- Dynamic major head rows go here -->
-        </tbody>
-      </table>
-    </div>
+      
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <div class="layout">
 
-    <!-- Color Section -->
-    <div id="colorSection" class="section-card">
-      <div class="card-header">
-        <h3>Color</h3>
+      <nav class="sidebar sidebar-offcanvas" id="sidebar" href="/css/">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="form-elements">
+              <i class="fa-solid fa-user menu-icon"></i>
+              <span class="menu-title">Parties</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/customer.html">Customer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/supplier.html">Supplier</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/distributor.html">Distributor</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="fa-solid fa-truck-moving menu-icon"></i>              <span class="menu-title">inventory</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/pages/forms/product.html">Products</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/supplier.html" aria-expanded="false" aria-controls="charts">
+              <i class="fa-solid fa-person menu-icon"></i>              <span class="menu-title">Supplier</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/sales.html">Sales</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/tables/financeadmin.html" aria-expanded="false" aria-controls="tables">
+              <i class="fa-solid fa-coins menu-icon"></i>              <span class="menu-title">Finance/Admin</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/charts/sales.html" aria-expanded="false" aria-controls="icons">
+              <i class="fa-brands fa-adversal menu-icon"></i>                 <span class="menu-title">Sales</span>
+              <!-- <i class="menu-arrow"></i> -->
+            </a>
+            <!-- <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+              </ul>
+            </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Settings</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/settingcompany.html"> Company Settings </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/rolesandpermission.html"> Roles and Permissions </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/pages/samples/masters.html"> Masters</a></li>
+
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="/pages/samples/hrms.html" aria-expanded="false" aria-controls="error">
+              <i class="fa-solid fa-bars menu-icon"></i>              <span class="menu-title">HRMS</span>
+            </a>
+           
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/documentation.html">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">My Space</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/documentation/supplychain.html">
+              <i class="fa-solid fa-industry menu-icon" ></i>              <span class="menu-title">Supply Chain</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="master-page-container">
+        <h3>Settings-Masters</h3>
+        <form class="master-form">
+          <!-- Category Field -->
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" placeholder="Enter Category" required />
+          </div>
+      
+          <!-- Sub Category Field -->
+          <div class="form-group">
+            <label for="subcategory">Sub Category</label>
+            <input type="text" id="subcategory" name="subcategory" placeholder="Enter Sub Category" required />
+          </div>
+      
+          <!-- Units Field -->
+          <div class="form-group">
+            <label for="units">Units</label>
+            <select id="units" name="units" required>
+              <option value="">Select Units</option>
+              <option value="kg">Kilograms</option>
+              <option value="liters">Liters</option>
+              <option value="pieces">Pieces</option>
+            </select>
+          </div>
+      
+          <!-- Major Heads Field -->
+          <div class="form-group">
+            <label for="majorheads">Major Heads</label>
+            <input type="text" id="majorheads" name="majorheads" placeholder="Enter Major Heads" />
+          </div>
+      
+          <!-- Color Field -->
+          <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" id="color" name="color" placeholder="Enter Color" />
+          </div>
+      
+          <!-- Position Field -->
+          <div class="form-group">
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" placeholder="Enter Position" />
+          </div>
+      
+          <!-- Volume Field -->
+          <div class="form-group">
+            <label for="volume">Volume</label>
+            <input type="number" id="volume" name="volume" placeholder="Enter Volume" step="0.01" />
+          </div>
+      
+          <!-- Taxes Field -->
+          <div class="form-group">
+            <label for="taxes">Taxes</label>
+            <input type="text" id="taxes" name="taxes" placeholder="Enter Tax Details" />
+          </div>
+      
+          <!-- Currencies Field -->
+          <div class="form-group">
+            <label for="currencies">Currencies</label>
+            <select id="currencies" name="currencies">
+              <option value="">Select Currency</option>
+              <option value="usd">USD</option>
+              <option value="inr">INR</option>
+              <option value="eur">Euro</option>
+            </select>
+          </div>
+      
+          <!-- Payment Method Field -->
+          <div class="form-group">
+            <label for="payment-method">Payment Method</label>
+            <select id="payment-method" name="payment-method">
+              <option value="">Select Payment Method</option>
+              <option value="cash">Cash</option>
+              <option value="cheque">Cheque</option>
+              <option value="credit-card">Credit Card</option>
+              <option value="bank-transfer">Bank Transfer</option>
+            </select>
+          </div>
+      
+          <!-- Submit Button -->
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">Save</button>
+          </div>
+        </form>
       </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addColorModal">
-        <i class="fas fa-plus-circle"></i> Add New Color
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Color Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="colorTableBody">
-          <!-- Dynamic color rows go here -->
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Position Section -->
-    <div id="positionSection" class="section-card">
-      <div class="card-header">
-        <h3>Position</h3>
+      
       </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addPositionModal">
-        <i class="fas fa-plus-circle"></i> Add New Position
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Position Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="positionTableBody">
-          <!-- Dynamic position rows go here -->
-        </tbody>
-      </table>
-    </div>
+    
 
-    <!-- Volume Section -->
-    <div id="volumeSection" class="section-card">
-      <div class="card-header">
-        <h3>Volume</h3>
-      </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addVolumeModal">
-        <i class="fas fa-plus-circle"></i> Add New Volume
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Volume Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="volumeTableBody">
-          <!-- Dynamic volume rows go here -->
-        </tbody>
-      </table>
-    </div>
+  <!-- plugins:js -->
+  <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/vendors/chart.js/Chart.min.js"></script>
+  <script src="/vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="/js/dataTables.select.min.js"></script>
 
-    <!-- Taxes Section -->
-    <div id="taxesSection" class="section-card">
-      <div class="card-header">
-        <h3>Taxes</h3>
-      </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addTaxModal">
-        <i class="fas fa-plus-circle"></i> Add New Tax
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Tax Name</th>
-            <th>Percentage</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="taxTableBody">
-          <!-- Dynamic tax rows go here -->
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Currencies Section -->
-    <div id="currenciesSection" class="section-card">
-      <div class="card-header">
-        <h3>Currencies</h3>
-      </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCurrencyModal">
-        <i class="fas fa-plus-circle"></i> Add New Currency
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Currency Name</th>
-            <th>Currency Symbol</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="currencyTableBody">
-          <!-- Dynamic currency rows go here -->
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Payment Modes Section -->
-    <div id="paymentModesSection" class="section-card">
-      <div class="card-header">
-        <h3>Payment Modes</h3>
-      </div>
-      <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addPaymentModeModal">
-        <i class="fas fa-plus-circle"></i> Add New Payment Mode
-      </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Mode Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="paymentModeTableBody">
-          <!-- Dynamic payment mode rows go here -->
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-
-  <!-- Bootstrap JS and Dependencies -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom JS -->
-  <script>
-    // Example of handling form submissions for dynamic rows
-    document.querySelectorAll(".section-card form").forEach(function(form) {
-      form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        const tableBody = form.closest(".section-card").querySelector("tbody");
-        const newRow = document.createElement("tr");
-        newRow.innerHTML = `
-          <td>1</td>
-          <td>${form.querySelector(".form-control").value}</td>
-          <td><button class="btn btn-warning btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
-        `;
-        tableBody.appendChild(newRow);
-        form.reset();
-      });
-    });
-  </script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/js/off-canvas.js"></script>
+  <script src="/js/hoverable-collapse.js"></script>
+  <script src="/js/template.js"></script>
+  <script src="/js/settings.js"></script>
+  <script src="/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
 </body>
+
 </html>
+

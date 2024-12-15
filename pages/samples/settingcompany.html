@@ -33,26 +33,43 @@
     }
       .form-container {
     /* max-width: 800px; */
-    width: 100%;
-    margin: auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    width: 100vw;
+  max-width: 800px;
+  top: 0;
+  /* margin: 20px auto; */
+  padding-left: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-
+  .form-group input,
+.form-group select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
   .form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    flex: 1;
+  display: flex;
+  flex-direction: column;
   }
-
+  .form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
   .form-group label {
-    flex: 0 0 150px;
     font-weight: bold;
-    margin-right: 15px;
+  color: #555;
+  margin-bottom: 5px;
   }
-
+  .settingform {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
   .form-group .form-control, .form-group textarea {
     flex: 1;
     padding: 10px;
@@ -70,6 +87,11 @@
     padding: 10px 20px;
     font-size: 16px;
   }
+  .form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
   </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -297,9 +319,12 @@
       <div class="content">
         <div class="form-container">
           <h3>Settings-CompanySettings</h3>
-          <form action="#" method="POST" novalidate>
+          <form action="#" method="POST" novalidate class="settingform">
             <!-- Form Group -->
+            <div class="form-row">
+
             <div class="form-group">
+
               <label for="companyName">Company Name</label>
               <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Enter company name" required>
             </div>
@@ -308,8 +333,11 @@
               <label for="companyEmail">Company Email</label>
               <input type="email" class="form-control" id="companyEmail" name="companyEmail" placeholder="Enter company email" required>
             </div>
-      
+            </div>
+            <div class="form-row">
+
             <div class="form-group">
+
               <label for="companyPhone">Company Phone</label>
               <input type="text" class="form-control" id="companyPhone" name="companyPhone" placeholder="Enter phone number" pattern="^[0-9]{10}$" required>
               <small class="form-text">Enter a 10-digit phone number.</small>
@@ -319,8 +347,11 @@
               <label for="companyAddress">Company Address</label>
               <textarea class="form-control" id="companyAddress" name="companyAddress" rows="3" placeholder="Enter company address" required></textarea>
             </div>
-      
+            </div>
+            <div class="form-row">
+
             <div class="form-group">
+
               <label for="gstNumber">GST Number</label>
               <input type="text" class="form-control" id="gstNumber" name="gstNumber" placeholder="Enter GST number" required>
               <small class="form-text">Enter a valid GST number.</small>
@@ -331,8 +362,11 @@
               <input type="text" class="form-control" id="panNumber" name="panNumber" placeholder="Enter PAN number" required>
               <small class="form-text">Enter a valid PAN number (e.g., ABCDE1234F).</small>
             </div>
-      
+            </div>
+            <div class="form-row">
+
             <div class="form-group">
+
               <label for="bankAccount">Bank Account Number</label>
               <input type="text" class="form-control" id="bankAccount" name="bankAccount" placeholder="Enter bank account number" required>
               <small class="form-text">Enter a valid account number (9-18 digits).</small>
@@ -342,6 +376,7 @@
               <label for="ifscCode">IFSC Code</label>
               <input type="text" class="form-control" id="ifscCode" name="ifscCode" placeholder="Enter IFSC code" required>
               <small class="form-text">Enter a valid IFSC code (e.g., SBIN0001234).</small>
+            </div>
             </div>
       
             <!-- Submit Button -->

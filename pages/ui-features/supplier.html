@@ -26,6 +26,123 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  <style>
+     body{
+      background-color: #f9f9f9;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    /* Page Container */
+.supplier-page-container {
+  width: 100vw;
+  max-width: 800px;
+  top: 0;
+  /* margin: 20px auto; */
+  padding-left: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+/* Header */
+h2 {
+  text-align: center;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Form */
+.supplier-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Button Actions */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-submit,
+.btn-reset {
+  width: 48%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit {
+  background-color: #28a745;
+}
+
+.btn-submit:hover {
+  background-color: #218838;
+}
+
+.btn-reset {
+  background-color: #dc3545;
+}
+
+.btn-reset:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-submit,
+  .btn-reset {
+    width: 100%;
+  }
+}
+
+  </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -248,6 +365,56 @@
           </li>
         </ul>
       </nav>
+      <div class="supplier-page-container">
+        <h2>Parties-Supplier</h2>
+        <form class="supplier-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="supplier-name">Supplier Name</label>
+              <input type="text" id="supplier-name" name="supplier-name" placeholder="Enter supplier name" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-number">Contact Number</label>
+              <input type="tel" id="contact-number" name="contact-number" placeholder="Enter contact number" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Enter email address" />
+            </div>
+            <div class="form-group">
+              <label for="designation">Designation</label>
+              <input type="text" id="designation" name="designation" placeholder="Enter designation" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="billing-address">Billing Address</label>
+              <textarea id="billing-address" name="billing-address" rows="2" placeholder="Enter billing address"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="shipping-address">Shipping Address</label>
+              <textarea id="shipping-address" name="shipping-address" rows="2" placeholder="Enter shipping address"></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pan-number">PAN Number</label>
+              <input type="text" id="pan-number" name="pan-number" placeholder="Enter PAN number" />
+            </div>
+            <div class="form-group">
+              <label for="gst-number">GST Number</label>
+              <input type="text" id="gst-number" name="gst-number" placeholder="Enter GST number" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">Save Supplier</button>
+            <button type="reset" class="btn-reset">Clear</button>
+          </div>
+        </form>
+      </div>
+      
       </div>
     
 

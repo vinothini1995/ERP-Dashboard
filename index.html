@@ -25,6 +25,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
+<head>
+  <script>
+    if (window.location.hostname === 'localhost') {
+      document.write('<base href="/">');
+    } else {
+      document.write('<base href="https://vinothini1995.github.io/ERP-Dashboard/">');
+    }
+  </script>
+</head>
+
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->

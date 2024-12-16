@@ -27,12 +27,11 @@
 </head>
 <body>
   <style>
-     body{
+    body{
       background-color: #f9f9f9;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
-    /* Page Container */
-.distributor-page-container {
+    .customer-page-container {
   width: 100vw;
   max-width: 800px;
   top: 0;
@@ -43,21 +42,16 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.form-group input:focus, 
-.form-group select:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+
 /* Header */
 h2 {
   text-align: center;
-  color: #444;
+  color: #333;
   margin-bottom: 20px;
 }
 
 /* Form */
-.distributor-form {
+.customer-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -74,7 +68,12 @@ h2 {
   display: flex;
   flex-direction: column;
 }
-
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 .form-group label {
   font-weight: bold;
   color: #555;
@@ -82,16 +81,11 @@ h2 {
 }
 
 .form-group input,
-.form-group textarea,
 .form-group select {
   padding: 8px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-}
-
-textarea {
-  resize: none;
 }
 
 /* Button Actions */
@@ -114,11 +108,11 @@ textarea {
 }
 
 .btn-submit {
-  background-color: #28a745;
+  background-color: #007bff;
 }
 
 .btn-submit:hover {
-  background-color: #218838;
+  background-color: #0056b3;
 }
 
 .btn-reset {
@@ -126,7 +120,7 @@ textarea {
 }
 
 .btn-reset:hover {
-  background-color: #c82333;
+  background-color: #b02a37;
 }
 
 /* Responsive Adjustments */
@@ -141,7 +135,6 @@ textarea {
     width: 100%;
   }
 }
-
   </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -216,11 +209,11 @@ textarea {
             </div>
           </li>
           <li class="nav-item">
-            <a href="/pages/samples/Login.html" class="btn btn-primary">Login</a>
+            <a href="../../pages/samples/Login.html" class="btn btn-primary">Login</a>
           </li>
                     <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="/images/faces/face28.jpg" alt="profile"/>
+              <img src="../../images/faces/face28.jpg" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -281,9 +274,9 @@ textarea {
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/customer.html">Customer</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/supplier.html">Supplier</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/distributor.html">Distributor</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/customer.html">Customer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/supplier.html">Supplier</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/distributor.html">Distributor</a></li>
               </ul>
             </div>
           </li>
@@ -339,21 +332,21 @@ textarea {
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/samples/settingcompany.html"> Company Settings </a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/samples/rolesandpermission.html"> Roles and Permissions </a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/samples/masters.html"> Masters</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/settingcompany.html"> Company Settings </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/rolesandpermission.html"> Roles and Permissions </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/masters.html"> Masters</a></li>
 
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="../../pages/samples/hrms.html" aria-expanded="false" aria-controls="error">
+            <a class="nav-link"  href="../../pages/settings/hrms.html" aria-expanded="false" aria-controls="error">
               <i class="fa-solid fa-bars menu-icon"></i>              <span class="menu-title">HRMS</span>
             </a>
            
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../pages/documentation/documentation.html">
+            <a class="nav-link" href="../../pages/documentation/myspace.html">
               <i class="icon-paper menu-icon"></i>
               <span class="menu-title">My Space</span>
             </a>
@@ -365,13 +358,13 @@ textarea {
           </li>
         </ul>
       </nav>
-      <div class="distributor-page-container">
-        <h2>Parties-Distributor</h2>
-        <form class="distributor-form">
+      <div class="customer-page-container">
+        <h2>Parties-Customer</h2>
+        <form class="customer-form">
           <div class="form-row">
             <div class="form-group">
-              <label for="distributor-name">Distributor Name</label>
-              <input type="text" id="distributor-name" name="distributor-name" placeholder="Enter distributor name" required />
+              <label for="customer-name">Customer Name</label>
+              <input type="text" id="customer-name" name="customer-name" placeholder="Enter customer name" required />
             </div>
             <div class="form-group">
               <label for="contact-number">Contact Number</label>
@@ -384,32 +377,39 @@ textarea {
               <input type="email" id="email" name="email" placeholder="Enter email address" />
             </div>
             <div class="form-group">
-              <label for="designation">Designation</label>
-              <input type="text" id="designation" name="designation" placeholder="Enter designation" />
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="Enter city" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="billing-address">Billing Address</label>
-              <textarea id="billing-address" name="billing-address" rows="2" placeholder="Enter billing address"></textarea>
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" placeholder="Enter state" />
             </div>
             <div class="form-group">
-              <label for="shipping-address">Shipping Address</label>
-              <textarea id="shipping-address" name="shipping-address" rows="2" placeholder="Enter shipping address"></textarea>
+              <label for="zip-code">ZIP Code</label>
+              <input type="text" id="zip-code" name="zip-code" placeholder="Enter ZIP code" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="pan-number">PAN Number</label>
-              <input type="text" id="pan-number" name="pan-number" placeholder="Enter PAN number" />
+              <label for="customer-type">Customer Type</label>
+              <select id="customer-type" name="customer-type">
+                <option value="individual">Individual</option>
+                <option value="business">Business</option>
+              </select>
             </div>
             <div class="form-group">
-              <label for="gst-number">GST Number</label>
-              <input type="text" id="gst-number" name="gst-number" placeholder="Enter GST number" />
+              <label for="payment-method">Payment Method</label>
+              <select id="payment-method" name="payment-method">
+                <option value="cash">Cash</option>
+                <option value="credit">Credit</option>
+                <option value="online">Online</option>
+              </select>
             </div>
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn-submit">Save Distributor</button>
+            <button type="submit" class="btn-submit">Save Customer</button>
             <button type="reset" class="btn-reset">Clear</button>
           </div>
         </form>

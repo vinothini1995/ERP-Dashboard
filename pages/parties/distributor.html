@@ -9,29 +9,146 @@
   <!-- <base href="https://vinothini1995.github.io/ERP-Dashboard/"> -->
 
   <!-- plugins:css -->
-  <link rel="stylesheet" href="/vendors/feather/feather.css">
-  <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="/js/select.dataTables.min.css">
+  <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="../../js/select.dataTables.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="/images/favicon.jpg" />
+  <link rel="shortcut icon" href="../../images/favicon.jpg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
+  <style>
+     body{
+      background-color: #f9f9f9;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    /* Page Container */
+.distributor-page-container {
+  width: 100vw;
+  max-width: 800px;
+  top: 0;
+  /* margin: 20px auto; */
+  padding-left: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+/* Header */
+h2 {
+  text-align: center;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Form */
+.distributor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Button Actions */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-submit,
+.btn-reset {
+  width: 48%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit {
+  background-color: #28a745;
+}
+
+.btn-submit:hover {
+  background-color: #218838;
+}
+
+.btn-reset {
+  background-color: #dc3545;
+}
+
+.btn-reset:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-submit,
+  .btn-reset {
+    width: 100%;
+  }
+}
+
+  </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="/index.html"><img src="/images/Vinoimages/logo2.jpg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="/index.html"><img src="/images/Vinoimages/logo2.jpg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="../../index.html"><img src="../../images/Vinoimages/logo2.jpg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/Vinoimages/logo2.jpg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -148,10 +265,10 @@
       <!-- partial:partials/_sidebar.html -->
       <div class="layout">
 
-      <nav class="sidebar sidebar-offcanvas" id="sidebar" href="/css/">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar" href="../../css/">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/index.html">
+            <a class="nav-link" href="../../index.html">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -164,9 +281,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/customer.html">Customer</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/supplier.html">Supplier</a></li>
-                <li class="nav-item"> <a class="nav-link" href="/pages/ui-features/distributor.html">Distributor</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/customer.html">Customer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/supplier.html">Supplier</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/distributor.html">Distributor</a></li>
               </ul>
             </div>
           </li>
@@ -177,12 +294,12 @@
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="/pages/forms/product.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../pages/forms/product.html">Products</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/pages/documentation/supplier.html" aria-expanded="false" aria-controls="charts">
+            <a class="nav-link" href="../../pages/documentation/supplier.html" aria-expanded="false" aria-controls="charts">
               <i class="fa-solid fa-person menu-icon"></i>              <span class="menu-title">Supplier</span>
               <!-- <i class="menu-arrow"></i> -->
             </a>
@@ -193,7 +310,7 @@
             </div> -->
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="/pages/tables/financeadmin.html" aria-expanded="false" aria-controls="tables">
+            <a class="nav-link"  href="../../pages/tables/financeadmin.html" aria-expanded="false" aria-controls="tables">
               <i class="fa-solid fa-coins menu-icon"></i>              <span class="menu-title">Finance/Admin</span>
               <!-- <i class="menu-arrow"></i> -->
             </a>
@@ -204,7 +321,7 @@
             </div> -->
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="/pages/charts/sales.html" aria-expanded="false" aria-controls="icons">
+            <a class="nav-link"  href="../../pages/charts/sales.html" aria-expanded="false" aria-controls="icons">
               <i class="fa-brands fa-adversal menu-icon"></i>                 <span class="menu-title">Sales</span>
               <!-- <i class="menu-arrow"></i> -->
             </a>
@@ -222,55 +339,105 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/pages/samples/settingcompany.html"> Company Settings </a></li>
-                <li class="nav-item"> <a class="nav-link" href="/pages/samples/rolesandpermission.html"> Roles and Permissions </a></li>
-                <li class="nav-item"> <a class="nav-link" href="/pages/samples/masters.html"> Masters</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/settingcompany.html"> Company Settings </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/rolesandpermission.html"> Roles and Permissions </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/masters.html"> Masters</a></li>
 
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="/pages/samples/hrms.html" aria-expanded="false" aria-controls="error">
+            <a class="nav-link"  href="../../pages/settings/hrms.html" aria-expanded="false" aria-controls="error">
               <i class="fa-solid fa-bars menu-icon"></i>              <span class="menu-title">HRMS</span>
             </a>
            
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/pages/documentation/documentation.html">
+            <a class="nav-link" href="../../pages/documentation/myspace.html">
               <i class="icon-paper menu-icon"></i>
               <span class="menu-title">My Space</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/pages/documentation/supplychain.html">
+            <a class="nav-link" href="../../pages/documentation/supplychain.html">
               <i class="fa-solid fa-industry menu-icon" ></i>              <span class="menu-title">Supply Chain</span>
             </a>
           </li>
         </ul>
       </nav>
+      <div class="distributor-page-container">
+        <h2>Parties-Distributor</h2>
+        <form class="distributor-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="distributor-name">Distributor Name</label>
+              <input type="text" id="distributor-name" name="distributor-name" placeholder="Enter distributor name" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-number">Contact Number</label>
+              <input type="tel" id="contact-number" name="contact-number" placeholder="Enter contact number" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Enter email address" />
+            </div>
+            <div class="form-group">
+              <label for="designation">Designation</label>
+              <input type="text" id="designation" name="designation" placeholder="Enter designation" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="billing-address">Billing Address</label>
+              <textarea id="billing-address" name="billing-address" rows="2" placeholder="Enter billing address"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="shipping-address">Shipping Address</label>
+              <textarea id="shipping-address" name="shipping-address" rows="2" placeholder="Enter shipping address"></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pan-number">PAN Number</label>
+              <input type="text" id="pan-number" name="pan-number" placeholder="Enter PAN number" />
+            </div>
+            <div class="form-group">
+              <label for="gst-number">GST Number</label>
+              <input type="text" id="gst-number" name="gst-number" placeholder="Enter GST number" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">Save Distributor</button>
+            <button type="reset" class="btn-reset">Clear</button>
+          </div>
+        </form>
+      </div>
+      
       </div>
     
 
   <!-- plugins:js -->
-  <script src="/vendors/js/vendor.bundle.base.js"></script>
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="/vendors/chart.js/Chart.min.js"></script>
-  <script src="/vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="/js/dataTables.select.min.js"></script>
+  <script src="../../vendors/chart.js/Chart.min.js"></script>
+  <script src="../../vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="../../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="../../js/dataTables.select.min.js"></script>
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="/js/off-canvas.js"></script>
-  <script src="/js/hoverable-collapse.js"></script>
-  <script src="/js/template.js"></script>
-  <script src="/js/settings.js"></script>
-  <script src="/js/todolist.js"></script>
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/hoverable-collapse.js"></script>
+  <script src="../../js/template.js"></script>
+  <script src="../../js/settings.js"></script>
+  <script src="../../js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="/js/dashboard.js"></script>
-  <script src="/js/Chart.roundedBarCharts.js"></script>
+  <script src="../../js/dashboard.js"></script>
+  <script src="../../js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
 </body>
 

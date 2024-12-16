@@ -27,91 +27,59 @@
 </head>
 <body>
   <style>
-    /* Container Styling */
     body{
-      background-color: #f9f9f9;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background-color: #f9f9f9;
 
     }
-.master-page-container {
-  width: 100vw;
-  height: 100%;
-  max-width: 800px;
-  top: 0;
-  /* margin: 20px auto; */
-  padding-left: 20px;
-  background-color: #f9f9f9;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
+    .container {
+  padding: 20px;
 }
 
-h2 {
-  text-align: center;
+h2, h3 {
   color: #333;
-  margin-bottom: 20px;
 }
 
-/* Form Styling */
-.master-form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-
-}
-.form-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-.form-group label {
-  font-weight: bold;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group select {
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+p {
   font-size: 14px;
+  color: #666;
 }
 
-.form-group input:focus, 
-.form-group select:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-/* Submit Button */
-.form-actions {
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
   text-align: center;
 }
 
-.btn-submit {
+table th {
+  background-color: #f4f4f4;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: none;
   background-color: #007bff;
   color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.btn-submit:hover {
+.btn:hover {
   background-color: #0056b3;
+}
+
+.add-role-btn {
+  margin-bottom: 20px;
+  float: right;
+}
+
+.edit-btn, .delete-btn, .edit-role-btn {
+  margin: 2px;
 }
 
   </style>
@@ -253,9 +221,9 @@ h2 {
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/customer.html">Customer</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/supplier.html">Supplier</a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/distributor.html">Distributor</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/customer.html">Customer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/supplier.html">Supplier</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/parties/distributor.html">Distributor</a></li>
               </ul>
             </div>
           </li>
@@ -311,21 +279,21 @@ h2 {
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="../../pages/samples/settingcompany.html"> Company Settings </a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/samples/rolesandpermission.html"> Roles and Permissions </a></li>
-                <li class="nav-item"> <a class="nav-link" href="../../pages/samples/masters.html"> Masters</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/settingcompany.html"> Company Settings </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/rolesandpermission.html"> Roles and Permissions </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/settings/masters.html"> Masters</a></li>
 
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="../../pages/samples/hrms.html" aria-expanded="false" aria-controls="error">
+            <a class="nav-link"  href="../../pages/settings/hrms.html" aria-expanded="false" aria-controls="error">
               <i class="fa-solid fa-bars menu-icon"></i>              <span class="menu-title">HRMS</span>
             </a>
            
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../pages/documentation/documentation.html">
+            <a class="nav-link" href="../../pages/documentation/myspace.html">
               <i class="icon-paper menu-icon"></i>
               <span class="menu-title">My Space</span>
             </a>
@@ -337,104 +305,41 @@ h2 {
           </li>
         </ul>
       </nav>
-      <div class="master-page-container">
-        <h3>Settings-Masters</h3>
-        <form class="master-form">
-          <!-- Category Field -->
-          <div class="form-row">
-
-          <div class="form-group">
-            <label for="category">Category</label>
-            <input type="text" id="category" name="category" placeholder="Enter Category" required />
-          </div>
+      <div class="container">
+        <h3>Settings-Roles and Permissions</h3>
       
-          <!-- Sub Category Field -->
-          <div class="form-group">
-            <label for="subcategory">Sub Category</label>
-            <input type="text" id="subcategory" name="subcategory" placeholder="Enter Sub Category" required />
-          </div>
-          </div>
-          <!-- Units Field -->
-          <div class="form-row">
-
-          <div class="form-group">
-            <label for="units">Units</label>
-            <select id="units" name="units" required>
-              <option value="">Select Units</option>
-              <option value="kg">Kilograms</option>
-              <option value="liters">Liters</option>
-              <option value="pieces">Pieces</option>
-            </select>
-          </div>
-      
-          <!-- Major Heads Field -->
-          <div class="form-group">
-            <label for="majorheads">Major Heads</label>
-            <input type="text" id="majorheads" name="majorheads" placeholder="Enter Major Heads" />
-          </div>
-          </div>
-      
-          <!-- Color Field -->
-          <div class="form-row">
-
-          <div class="form-group">
-            <label for="color">Color</label>
-            <input type="text" id="color" name="color" placeholder="Enter Color" />
-          </div>
-      
-          <!-- Position Field -->
-          <div class="form-group">
-            <label for="position">Position</label>
-            <input type="text" id="position" name="position" placeholder="Enter Position" />
-          </div>
-          </div>
-      
-          <!-- Volume Field -->
-          <div class="form-row">
-
-          <div class="form-group">
-            <label for="volume">Volume</label>
-            <input type="number" id="volume" name="volume" placeholder="Enter Volume" step="0.01" />
-          </div>
-      
-          <!-- Taxes Field -->
-          <div class="form-group">
-            <label for="taxes">Taxes</label>
-            <input type="text" id="taxes" name="taxes" placeholder="Enter Tax Details" />
-          </div>
-          </div>
-          <!-- Currencies Field -->
-          <div class="form-row">
-
-          <div class="form-group">
-            <label for="currencies">Currencies</label>
-            <select id="currencies" name="currencies">
-              <option value="">Select Currency</option>
-              <option value="usd">USD</option>
-              <option value="inr">INR</option>
-              <option value="eur">Euro</option>
-            </select>
-          </div>
-      
-          <!-- Payment Method Field -->
-          <div class="form-group">
-            <label for="payment-method">Payment Method</label>
-            <select id="payment-method" name="payment-method">
-              <option value="">Select Payment Method</option>
-              <option value="cash">Cash</option>
-              <option value="cheque">Cheque</option>
-              <option value="credit-card">Credit Card</option>
-              <option value="bank-transfer">Bank Transfer</option>
-            </select>
-          </div>
-          </div>
-      
-          <!-- Submit Button -->
-          <div class="form-actions">
-            <button type="submit" class="btn-submit">Save</button>
-          </div>
-        </form>
-      </div>
+        <!-- Roles Management Section -->
+        <div class="roles-section">
+          <button class="btn add-role-btn">Add Role</button>
+          <table>
+            <thead>
+              <tr>
+                <th>Role Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Admin</td>
+                <td>Full access to the system</td>
+                <td>
+                  <button class="btn edit-btn">Edit</button>
+                  <button class="btn delete-btn">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Editor</td>
+                <td>Can modify content</td>
+                <td>
+                  <button class="btn edit-btn">Edit</button>
+                  <button class="btn delete-btn">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
       
       </div>
     

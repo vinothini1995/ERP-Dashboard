@@ -26,6 +26,33 @@
   <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+       }
+
+    .form-section {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #343a40;
+      margin-bottom: 15px;
+    }
+
+    .btn-custom {
+      background-color: #007bff;
+      color: #ffffff;
+      border-radius: 5px;
+    }
+  </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -248,6 +275,83 @@
             </li>
           </ul>
         </nav>
+      </div>
+      <div class="container mt-4">
+        <h2 class="text-center mb-4">SupplyChain</h2>
+    
+        <!-- Vehicle Add Form -->
+        <div class="form-section">
+          <div class="form-title">Vehicle Add Form</div>
+          <form>
+            <div class="mb-3">
+              <label for="vehicleNumber" class="form-label">Vehicle Number</label>
+              <input type="text" class="form-control" id="vehicleNumber" placeholder="Enter vehicle number">
+            </div>
+            <div class="mb-3">
+              <label for="vehicleType" class="form-label">Vehicle Type</label>
+              <select class="form-select" id="vehicleType">
+                <option>Select vehicle type</option>
+                <option>Truck</option>
+                <option>Van</option>
+                <option>Bike</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="capacity" class="form-label">Load Capacity (in tons)</label>
+              <input type="number" class="form-control" id="capacity" placeholder="Enter load capacity">
+            </div>
+            <button type="submit" class="btn btn-custom">Add Vehicle</button>
+          </form>
+        </div>
+    
+        <!-- Porter Add Form -->
+        <div class="form-section">
+          <div class="form-title">Porter Add Form</div>
+          <form>
+            <div class="mb-3">
+              <label for="porterName" class="form-label">Porter Name</label>
+              <input type="text" class="form-control" id="porterName" placeholder="Enter porter name">
+            </div>
+            <div class="mb-3">
+              <label for="porterContact" class="form-label">Contact Number</label>
+              <input type="text" class="form-control" id="porterContact" placeholder="Enter contact number">
+            </div>
+            <div class="mb-3">
+              <label for="porterExperience" class="form-label">Experience (in years)</label>
+              <input type="number" class="form-control" id="porterExperience" placeholder="Enter experience">
+            </div>
+            <button type="submit" class="btn btn-custom">Add Porter</button>
+          </form>
+        </div>
+    
+        <!-- Delivery and Invoice Generation Form -->
+        <div class="form-section">
+          <div class="form-title">Delivery and Invoice Generation</div>
+          <form>
+            <div class="mb-3">
+              <label for="customerName" class="form-label">Customer Name</label>
+              <input type="text" class="form-control" id="customerName" placeholder="Enter customer name">
+            </div>
+            <div class="mb-3">
+              <label for="deliveryAddress" class="form-label">Delivery Address</label>
+              <textarea class="form-control" id="deliveryAddress" rows="2" placeholder="Enter delivery address"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="productDetails" class="form-label">Product Details</label>
+              <textarea class="form-control" id="productDetails" rows="3" placeholder="Enter product details (e.g., items and quantity)"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="vehicleSelect" class="form-label">Select Vehicle</label>
+              <select class="form-select" id="vehicleSelect">
+                <option>Select vehicle</option>
+                <option>Truck - Vehicle No: ABC123</option>
+                <option>Van - Vehicle No: XYZ456</option>
+                <option>Bike - Vehicle No: PQR789</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-custom">Generate Invoice</button>
+          </form>
+        </div>
       </div>
     
 

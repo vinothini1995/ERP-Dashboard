@@ -26,6 +26,43 @@
   <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
+  <style>
+  body {
+    background-color: #f9f9f9;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   
+}
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+.pie-chart-container {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.profile-pic {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.geo-monitoring {
+    height: 300px;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #6c757d;
+}
+
+.marketing-plan textarea {
+    resize: none;
+}
+</style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -249,6 +286,105 @@
           </ul>
         </nav>
       </div>
+      <div class="container mt-5">
+        <h2 class="text-center mb-4">Sales Management</h2>
+
+        <!-- Enquiry Form -->
+        <div class="form-section bg-white p-4 shadow rounded">
+            <h3>Enquiry Form</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="customerName" class="form-label">Customer Name</label>
+                    <input type="text" class="form-control" id="customerName" placeholder="Enter customer name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="mb-3">
+                    <label for="queryDetails" class="form-label">Query Details</label>
+                    <textarea class="form-control" id="queryDetails" rows="3" placeholder="Enter query"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <!-- Lead Generation Form -->
+        <div class="form-section bg-white p-4 shadow rounded">
+            <h3>Lead Generation Form</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="leadName" class="form-label">Lead Name</label>
+                    <input type="text" class="form-control" id="leadName" placeholder="Enter lead name">
+                </div>
+                <div class="mb-3">
+                    <label for="contact" class="form-label">Contact Number</label>
+                    <input type="tel" class="form-control" id="contact" placeholder="Enter contact number">
+                </div>
+                <div class="mb-3">
+                    <label for="leadSource" class="form-label">Source</label>
+                    <input type="text" class="form-control" id="leadSource" placeholder="Enter lead source">
+                </div>
+                <button type="submit" class="btn btn-success">Generate Lead</button>
+            </form>
+        </div>
+
+        <!-- Target Setup & Pie Chart -->
+        <div class="form-section bg-white p-4 shadow rounded">
+            <h3>Target Setup</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="targetGoal" class="form-label">Set Target (in Sales)</label>
+                    <input type="number" class="form-control" id="targetGoal" placeholder="Enter target value">
+                </div>
+                <button type="submit" class="btn btn-info">Set Target</button>
+            </form>
+            <h4 class="mt-4">Results:</h4>
+            <div class="pie-chart-container">
+                <canvas id="targetChart"></canvas>
+            </div>
+        </div>
+
+        <!-- EID Display -->
+        <div class="form-section bg-white p-4 shadow rounded text-center">
+            <h3>EID Profile</h3>
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-pic">
+            <p>Employee ID: <strong>EMP12345</strong></p>
+            <p>Name: <strong>John Doe</strong></p>
+            <p>Position: <strong>Sales Manager</strong></p>
+        </div>
+
+        <!-- Work Report Form -->
+        <div class="form-section bg-white p-4 shadow rounded">
+            <h3>Work Report</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="reportDetails" class="form-label">Report Details</label>
+                    <textarea class="form-control" id="reportDetails" rows="4" placeholder="Enter work report"></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary">Submit Report</button>
+            </form>
+        </div>
+
+        <!-- Geo-Wise Monitoring -->
+        <div class="form-section bg-white p-4 shadow rounded">
+            <h3>Geo-Wise Monitoring</h3>
+            <div class="geo-monitoring">Map Placeholder (Integrate Map API)</div>
+        </div>
+
+        <!-- Marketing Plan -->
+        <div class="form-section bg-white p-4 shadow rounded marketing-plan">
+            <h3>Marketing Plan</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="planDetails" class="form-label">Plan Details</label>
+                    <textarea class="form-control" id="planDetails" rows="5" placeholder="Enter marketing plan"></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning">Submit Plan</button>
+            </form>
+        </div>
+    </div>
+
     
 
   <!-- plugins:js -->
@@ -272,6 +408,21 @@
   <script src="../../js/dashboard.js"></script>
   <script src="../../js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
+  <script>
+    const ctx = document.getElementById('targetChart').getContext('2d');
+    const targetChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Achieved', 'Remaining'],
+            datasets: [{
+                label: 'Sales Target',
+                data: [60, 40], // Example data
+                backgroundColor: ['#4caf50', '#f44336'],
+                borderWidth: 1
+            }]
+        }
+    });
+</script>
 </body>
 
 </html>

@@ -26,6 +26,77 @@
   <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    }
+    .form-container {
+      width: 100vw;
+  max-width: 800px;
+  top: 0;
+  /* margin-left: 20px; */
+  /* margin: 20px auto; */
+  padding-left: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    }
+    .form-container h2 {
+      color: #333;
+      width:45%;
+      border-bottom: 2px solid #007BFF;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      
+    }
+    .form-group {
+      width: 48%;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .form-group textarea {
+      resize: vertical;
+      height: 60px;
+    }
+    .form-actions {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .form-actions button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+    .form-actions button:hover {
+      background: #0056b3;
+    }
+  </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -249,6 +320,165 @@
           </ul>
         </nav>
       </div>
+
+        <div class="form-container">
+          <!-- Supplier Entry Section -->
+          <h2>Supplier Entry</h2>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Supplier Name</label>
+                <input type="text" placeholder="Enter supplier name" required>
+              </div>
+              <div class="form-group">
+                <label>Supplier Code</label>
+                <input type="text" placeholder="Enter unique supplier code" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Contact Person</label>
+                <input type="text" placeholder="Enter contact person">
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter phone number">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Billing Address</label>
+                <textarea placeholder="Enter billing address"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Shipping Address</label>
+                <textarea placeholder="Enter shipping address"></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>PAN Number</label>
+                <input type="text" placeholder="Enter PAN number">
+              </div>
+              <div class="form-group">
+                <label>GSTIN</label>
+                <input type="text" placeholder="Enter GSTIN">
+              </div>
+            </div>
+      
+            <!-- Return Stock Section -->
+            <h2>Return Stock</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Return ID</label>
+                <input type="text" placeholder="Enter return ID">
+              </div>
+              <div class="form-group">
+                <label>Supplier/Customer Name</label>
+                <input type="text" placeholder="Enter supplier/customer name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" placeholder="Enter product name">
+              </div>
+              <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" placeholder="Enter quantity returned">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Reason for Return</label>
+              <textarea placeholder="Reason for return"></textarea>
+            </div>
+      
+            <!-- Stock Development Section -->
+            <h2>Stock Development</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Stock ID</label>
+                <input type="text" placeholder="Enter stock ID">
+              </div>
+              <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" placeholder="Enter product name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Current Stock Quantity</label>
+                <input type="number" placeholder="Enter current stock quantity">
+              </div>
+              <div class="form-group">
+                <label>Adjustment Quantity</label>
+                <input type="number" placeholder="Enter adjustment quantity">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Reason for Adjustment</label>
+              <textarea placeholder="Enter reason"></textarea>
+            </div>
+      
+            <!-- Product Management Section -->
+            <h2>Product Management</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" placeholder="Enter product name">
+              </div>
+              <div class="form-group">
+                <label>Barcode</label>
+                <input type="text" placeholder="Enter barcode">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Price</label>
+                <input type="number" placeholder="Enter price">
+              </div>
+              <div class="form-group">
+                <label>Stock Quantity</label>
+                <input type="number" placeholder="Enter stock quantity">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Bin Location</label>
+              <textarea placeholder="Enter bin location"></textarea>
+            </div>
+      
+            <!-- Billing Management Section -->
+            <h2>Billing Management</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Invoice Number</label>
+                <input type="text" placeholder="Enter invoice number">
+              </div>
+              <div class="form-group">
+                <label>Customer/Supplier Name</label>
+                <input type="text" placeholder="Enter name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Total Amount</label>
+                <input type="number" placeholder="Enter total amount">
+              </div>
+              <div class="form-group">
+                <label>Payment Method</label>
+                <select>
+                  <option>Cash</option>
+                  <option>Credit Card</option>
+                  <option>Bank Transfer</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit">Submit</button>
+              <button type="reset">Reset</button>
+            </div>
+          </form>
+        </div>
     
 
   <!-- plugins:js -->

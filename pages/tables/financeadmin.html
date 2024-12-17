@@ -26,6 +26,37 @@
   <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+       }
+   .financecontainer{
+    width: 100vw;
+  max-width: 800px;
+  top: 60;
+  /* margin: 20px auto; */
+  padding-left: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   }
+   .financeform{
+    display: flex;
+  flex-direction: column;
+   }
+   .financeform h4{
+    font-size: 25px;
+    color:grey
+   }
+    .form-section {
+      margin-bottom: 40px;
+    }
+    .btn-primary {
+      width: 100%;
+    }
+  </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -249,6 +280,168 @@
           </ul>
         </nav>
       </div>
+
+          <div class="financecontainer">
+            <h2>Finance & Admin </h2>
+            <form class="financeform">
+              
+              <!-- Budget Forecasting Form -->
+              <div class="form-section">
+                
+                <h4>1. Budget Forecasting</h4>
+                <div class="mb-3">
+                  <label for="projectName" class="form-label">Project/Cost Center Name</label>
+                  <input type="text" class="form-control" id="projectName" placeholder="Enter Project Name">
+                </div>
+                <div class="mb-3">
+                  <label for="plannedBudget" class="form-label">Planned Budget</label>
+                  <input type="number" class="form-control" id="plannedBudget" placeholder="Enter Planned Budget">
+                </div>
+                <div class="mb-3">
+                  <label for="actualSpending" class="form-label">Actual Spending</label>
+                  <input type="number" class="form-control" id="actualSpending" placeholder="Enter Actual Spending">
+                </div>
+                <div class="mb-3">
+                  <label for="forecastedBudget" class="form-label">Forecasted Budget</label>
+                  <input type="number" class="form-control" id="forecastedBudget" placeholder="Enter Forecasted Budget">
+                </div>
+                <div class="mb-3">
+                  <label for="forecastPeriod" class="form-label">Forecasted Period</label>
+                  <input type="date" class="form-control" id="forecastPeriod">
+                </div>
+                <div class="mb-3">
+                  <label for="approvalStatus" class="form-label">Budget Approval Status</label>
+                  <select class="form-select" id="approvalStatus">
+                    <option>Pending</option>
+                    <option>Approved</option>
+                    <option>Rejected</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="comments" class="form-label">Comments/Notes</label>
+                  <textarea class="form-control" id="comments" rows="4"></textarea>
+                </div>
+              </div>
+      
+              <!-- Invoice Form -->
+              <div class="form-section">
+                <h4>2. Invoice</h4>
+                <div class="mb-3">
+                  <label for="invoiceNumber" class="form-label">Invoice Number</label>
+                  <input type="text" class="form-control" id="invoiceNumber" placeholder="Enter Invoice Number">
+                </div>
+                <div class="mb-3">
+                  <label for="invoiceDate" class="form-label">Invoice Date</label>
+                  <input type="date" class="form-control" id="invoiceDate">
+                </div>
+                <div class="mb-3">
+                  <label for="supplierName" class="form-label">Supplier/Production Name</label>
+                  <input type="text" class="form-control" id="supplierName" placeholder="Enter Supplier/Production Name">
+                </div>
+                <div class="mb-3">
+                  <label for="invoiceAmount" class="form-label">Invoice Amount</label>
+                  <input type="number" class="form-control" id="invoiceAmount" placeholder="Enter Invoice Amount">
+                </div>
+                <div class="mb-3">
+                  <label for="taxRate" class="form-label">Tax Rate</label>
+                  <select class="form-select" id="taxRate">
+                    <option>5%</option>
+                    <option>10%</option>
+                    <option>20%</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="paymentStatus" class="form-label">Payment Status</label>
+                  <select class="form-select" id="paymentStatus">
+                    <option>Paid</option>
+                    <option>Pending</option>
+                    <option>Overdue</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="invoiceNotes" class="form-label">Notes</label>
+                  <textarea class="form-control" id="invoiceNotes" rows="4"></textarea>
+                </div>
+              </div>
+      
+              <!-- Expense Manager Entry Form -->
+              <div class="form-section">
+                <h4>3. Expense Manager Entry</h4>
+                <div class="mb-3">
+                  <label for="expenseType" class="form-label">Expense Type</label>
+                  <select class="form-select" id="expenseType">
+                    <option>Travel</option>
+                    <option>Office Supplies</option>
+                    <option>Utilities</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="expenseAmount" class="form-label">Amount</label>
+                  <input type="number" class="form-control" id="expenseAmount" placeholder="Enter Expense Amount">
+                </div>
+                <div class="mb-3">
+                  <label for="expenseDate" class="form-label">Date of Expense</label>
+                  <input type="date" class="form-control" id="expenseDate">
+                </div>
+                <div class="mb-3">
+                  <label for="employeeName" class="form-label">Employee Name</label>
+                  <input type="text" class="form-control" id="employeeName" placeholder="Enter Employee Name">
+                </div>
+                <div class="mb-3">
+                  <label for="expenseDetails" class="form-label">Expense Details</label>
+                  <textarea class="form-control" id="expenseDetails" rows="4"></textarea>
+                </div>
+              </div>
+      
+              <!-- Payment Collection Form -->
+              <div class="form-section">
+                <h4>4. Payment Collection</h4>
+                <div class="mb-3">
+                  <label for="paymentID" class="form-label">Payment ID</label>
+                  <input type="text" class="form-control" id="paymentID" placeholder="Enter Payment ID">
+                </div>
+                <div class="mb-3">
+                  <label for="clientName" class="form-label">Client Name</label>
+                  <input type="text" class="form-control" id="clientName" placeholder="Enter Client Name">
+                </div>
+                <div class="mb-3">
+                  <label for="paymentAmount" class="form-label">Amount</label>
+                  <input type="number" class="form-control" id="paymentAmount" placeholder="Enter Amount">
+                </div>
+                <div class="mb-3">
+                  <label for="paymentMethod" class="form-label">Payment Method</label>
+                  <select class="form-select" id="paymentMethod">
+                    <option>Cash</option>
+                    <option>Bank Transfer</option>
+                    <option>Credit Card</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="paymentDate" class="form-label">Payment Date</label>
+                  <input type="date" class="form-control" id="paymentDate">
+                </div>
+                <div class="mb-3">
+                  <label for="invoiceNumber" class="form-label">Invoice Number</label>
+                  <input type="text" class="form-control" id="invoiceNumber" placeholder="Enter Invoice Number">
+                </div>
+                <div class="mb-3">
+                  <label for="paymentStatus" class="form-label">Payment Status</label>
+                  <select class="form-select" id="paymentStatus">
+                    <option>Completed</option>
+                    <option>Pending</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="paymentNotes" class="form-label">Notes</label>
+                  <textarea class="form-control" id="paymentNotes" rows="4"></textarea>
+                </div>
+              </div>
+      
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary">Submit All Forms</button>
+            </form>
+          </div>
+     
     
 
   <!-- plugins:js -->

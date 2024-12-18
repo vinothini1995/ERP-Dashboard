@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="../../js/select.dataTables.min.css">
+    <link rel="shortcut icon" href="../../images/favicon.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="container-scroller">
+
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo mr-5" href="../../index.html"><img src="../../images/Vinoimages/logo2.jpg" class="mr-2" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/Vinoimages/logo2.jpg" alt="logo"/></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+          <ul class="navbar-nav mr-lg-2">
+            <li class="nav-item nav-search d-none d-lg-block">
+              <div class="input-group">
+                <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                  <span class="input-group-text" id="search">
+                    <i class="icon-search"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="icon-bell mx-0"></i>
+                <span class="count"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="ti-info-alt mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Just now
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-warning">
+                      <i class="ti-settings mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">Settings</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      Private message
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-info">
+                      <i class="ti-user mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                    <p class="font-weight-light small-text mb-0 text-muted">
+                      2 days ago
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="../../pages/login/Login.html" class="btn btn-primary">Login</a>
+            </li>
+                      <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                <img src="../../images/faces/face28.jpg" alt="profile"/>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item">
+                  <i class="ti-settings text-primary"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item">
+                  <i class="ti-power-off text-primary"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+        </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_settings-panel.html -->
+        <div class="theme-setting-wrapper">
+          <div id="settings-trigger"><i class="ti-settings"></i></div>
+          <div id="theme-settings" class="settings-panel">
+            <i class="settings-close ti-close"></i>
+            <p class="settings-heading">SIDEBAR SKINS</p>
+            <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+            <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+            <p class="settings-heading mt-2">HEADER SKINS</p>
+            <div class="color-tiles mx-0 px-4">
+              <div class="tiles success"></div>
+              <div class="tiles warning"></div>
+              <div class="tiles danger"></div>
+              <div class="tiles info"></div>
+              <div class="tiles dark"></div>
+              <div class="tiles default"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="layout">
+
+            <nav class="sidebar sidebar-offcanvas" id="sidebar" href="../../css/">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="../../index.html">
+                    <i class="icon-grid menu-icon"></i>
+                    <span class="menu-title">Dashboard</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#partiesdropdown" aria-expanded="false" aria-controls="partiesdropdown">
+                    <i class="fa-solid fa-user menu-icon"></i>
+                    <span class="menu-title">Parties</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+                  <div class="collapse" id="partiesdropdown">
+                    <ul class="nav flex-column sub-menu">
+                      <li class="nav-item"> <a class="nav-link" href="../../pages/parties/customertable.html">Customer</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="../../pages/parties/supplier.html">Supplier</a></li>
+                      <li class="nav-item"> <a class="nav-link" href="../../pages/parties/distributor.html">Distributor</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#inventorydropdown" aria-expanded="false" aria-controls="inventorydropdown">
+                    <i class="fa-solid fa-truck-moving menu-icon"></i>              <span class="menu-title">inventory</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+                  <div class="collapse" id="inventorydropdown">
+                    <ul class="nav flex-column sub-menu">
+                      <li class="nav-item"><a class="nav-link" href="../../pages/inventory/product.html">Products</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/supplier/supplier.html">
+                    <i class="fa-solid fa-person menu-icon"></i>              <span class="menu-title">Supplier</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="../../pages/financeandadmin/financeadmin.html">
+                  <i class="fa-solid fa-coins menu-icon"></i>              <span class="menu-title">Finance/Admin</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="../../pages/sales/sales.html" >
+                  <i class="fa-brands fa-adversal menu-icon"></i>               
+                    <span class="menu-title">Sales</span>
+                </a>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                    <i class="icon-head menu-icon"></i>
+                    <span class="menu-title">Settings</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+                  <div class="collapse" id="auth">
+                    <ul class="nav flex-column sub-menu">
+                      <li class="nav-item"> <a class="nav-link" href="../../pages/settings/settingcompany.html"> Company Settings </a></li>
+                      <li class="nav-item"> <a class="nav-link" href="../../pages/settings/rolesandpermission.html"> Roles and Permissions </a></li>
+                      <li class="nav-item"> <a class="nav-link" href="../../pages/settings/masters.html"> Masters</a></li>
+      
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  href="../../pages/hrms/hrms.html">
+                    <i class="fa-solid fa-bars menu-icon"></i>              
+                    <span class="menu-title">HRMS</span>
+                  </a>
+                 </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="../../pages/myspace/myspace.html">
+                    <i class="icon-paper menu-icon"></i>
+                    <span class="menu-title">My Space</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/supplychain/supplychain.html">
+                    <i class="fa-solid fa-industry menu-icon" ></i>             
+                     <span class="menu-title">Supply Chain</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+         
+          <div class="container">
+            <!-- Buttons Section -->
+            <div class="buttons">
+              <button id="addCustomerBtn" class="btn btn-primary">Add Customer</button>
+              <button id="importCustomerBtn" class="btn btn-secondary" onclick="triggerFileImport()">Import Customer</button>
+              <input type="file" id="importFileInput" accept=".csv, .xlsx" style="display: none;" />
+                        </div>
+        
+            <!-- Customer Form (hidden initially) -->
+            <div id="customerForm" class="customer-form">
+              <h3 id="formTitle">Add Customer</h3>
+              <form id="customerFormDetails">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="sno">S.No</label>
+                    <input type="text" id="sno" name="sno" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="branch">Branch</label>
+                    <input type="text" id="branch" name="branch" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="customerId">Customer ID</label>
+                    <input type="text" id="customerId" name="customerId" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="customerName">Customer Name</label>
+                    <input type="text" id="customerName" name="customerName" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="contactNo">Contact No</label>
+                    <input type="text" id="contactNo" name="contactNo" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="billingAddress">Billing Address</label>
+                    <textarea id="billingAddress" name="billingAddress" required></textarea>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-submit">Save Customer</button>
+                  <button type="reset" class="btn btn-reset">Clear</button>
+                </div>
+              </form>
+            </div>
+        
+            <!-- Customer Table -->
+            <div class="customer-table">
+              <h3>Customer List</h3>
+              <table id="customerTable">
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Branch</th>
+                    <th>Customer ID</th>
+                    <th>Customer Name</th>
+                    <th>Contact No</th>
+                    <th>Billing Address</th>
+                    <th>Actions</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Data will be appended here -->
+                </tbody>
+              </table>
+            </div>
+        
+          <!-- Modal for Viewing Customer -->
+          <div id="viewDetails" class="modal">
+            <div class="modal-content">
+              <h3>Customer Details</h3>
+              <p><strong>S.No:</strong> <span id="viewSno"></span></p>
+              <p><strong>Branch:</strong> <span id="viewBranch"></span></p>
+              <p><strong>Customer ID:</strong> <span id="viewCustomerId"></span></p>
+              <p><strong>Customer Name:</strong> <span id="viewCustomerName"></span></p>
+              <p><strong>Contact No:</strong> <span id="viewContactNo"></span></p>
+              <p><strong>Billing Address:</strong> <span id="viewBillingAddress"></span></p>
+              <button onclick="closeModal()">Close</button>
+            </div>
+          </div>
+          
+  
+          </div>
+          
+      </div>
+     <style>
+    .container {
+        background-color: #f9f9f9;
+    margin: 0px;
+    width: 100%;
+}
+
+.customer-table {
+
+    width: 900px;
+
+}
+
+table {
+  width: 100%; /* Table expands to the full width of its parent */
+  border-collapse: collapse; /* Combines borders for a cleaner look */
+  background-color: #fff; /* White background for the table */
+}
+
+table th, 
+table td {
+  padding: 10px 15px; /* Adds padding inside cells */
+  text-align: left; /* Aligns text to the left */
+  border: 1px solid #ddd; /* Adds a subtle border around cells */
+}
+
+table th {
+  background-color: #f4f4f4; /* Distinct background color for headers */
+}
+
+table td {
+  word-wrap: break-word; /* Ensures content wraps if it's too long */
+}
+
+/* Modal Styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slide-down 0.3s ease-out;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: red;
+}
+
+.modal-details p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+    .buttons {
+      margin-right: 11px;
+     
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+      margin-left: 10px;
+    }
+
+    .btn-primary:hover, .btn-secondary:hover {
+      opacity: 0.8;
+    }
+
+    .customer-form {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-submit, .btn-reset {
+      width: 48%;
+      padding: 10px 0;
+    }
+
+    .btn-submit {
+      background-color: #007bff;
+    }
+
+    .btn-reset {
+      background-color: #dc3545;
+    }
+
+    
+
+  
+    input:focus, textarea:focus {
+  outline: none; /* Remove default browser outline */
+  border-color: black; /* Change border color on focus */
+}  .actions-btn {
+      display: flex;
+      gap: 10px;
+    }
+
+    .actions-btn button {
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background-color: #ffc107;
+      color: white;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .view-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .actions-btn button:hover {
+      opacity: 0.8;
+    }
+
+    .view-details {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .view-details p {
+      font-size: 16px;
+    }
+  
+     </style>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.14/dist/sweetalert2.all.min.js"></script>
+ <script>
+   let customerData = [];
+   let editIndex = null;
+
+   // Handle Add Customer button
+   document.getElementById("addCustomerBtn").addEventListener("click", () => {
+     document.getElementById("customerForm").style.display = "block";
+     document.getElementById("formTitle").innerText = "Add Customer";
+     document.getElementById("customerFormDetails").reset();
+     editIndex = null;
+   });
+
+   // Handle Customer Form Submit
+   document.getElementById("customerFormDetails").addEventListener("submit", function (e) {
+     e.preventDefault();
+
+     const customer = {
+       sno: document.getElementById("sno").value,
+       branch: document.getElementById("branch").value,
+       customerId: document.getElementById("customerId").value,
+       customerName: document.getElementById("customerName").value,
+       contactNo: document.getElementById("contactNo").value,
+       billingAddress: document.getElementById("billingAddress").value,
+     };
+
+     if (editIndex === null) {
+       customerData.push(customer);
+     } else {
+       customerData[editIndex] = customer;
+     }
+
+     updateTable();
+     document.getElementById("customerForm").style.display = "none";
+   });
+
+   // Handle Edit button click
+   function editCustomer(index) {
+     const customer = customerData[index];
+     document.getElementById("customerForm").style.display = "block";
+     document.getElementById("formTitle").innerText = "Edit Customer";
+     document.getElementById("sno").value = customer.sno;
+     document.getElementById("branch").value = customer.branch;
+     document.getElementById("customerId").value = customer.customerId;
+     document.getElementById("customerName").value = customer.customerName;
+     document.getElementById("contactNo").value = customer.contactNo;
+     document.getElementById("billingAddress").value = customer.billingAddress;
+     editIndex = index;
+   }
+// Function to display customer details in modal
+function viewCustomer(index) {
+  const customer = customerData[index];
+
+  // Populate modal with customer details
+  document.getElementById("modalSno").innerText = customer.sno;
+  document.getElementById("modalBranch").innerText = customer.branch;
+  document.getElementById("modalCustomerId").innerText = customer.customerId;
+  document.getElementById("modalCustomerName").innerText = customer.customerName;
+  document.getElementById("modalContactNo").innerText = customer.contactNo;
+  document.getElementById("modalBillingAddress").innerText = customer.billingAddress;
+
+  // Show the modal
+  document.getElementById("viewCustomerModal").style.display = "block";
+}
+
+function closeModal() {
+  const viewDetailsElement = document.getElementById("viewDetails");
+  if (viewDetailsElement) {
+    viewDetailsElement.style.display = "none";
+  }
+}
+
+
+// Close modal when clicking outside of the modal content
+window.onclick = function (event) {
+  const modal = document.getElementById("viewCustomerModal");
+  if (event.target === modal) {
+    closeModal();
+  }
+};
+
+   // Handle Delete button click with SweetAlert confirmation
+   function deleteCustomer(index) {
+     Swal.fire({
+       title: 'Are you sure?',
+       text: 'This will permanently delete the customer!',
+       icon: 'warning',
+       showCancelButton: true,
+       confirmButtonText: 'Yes, delete it!',
+       cancelButtonText: 'Cancel',
+     }).then((result) => {
+       if (result.isConfirmed) {
+         customerData.splice(index, 1);
+         updateTable();
+         Swal.fire('Deleted!', 'The customer has been deleted.', 'success');
+       }
+     });
+   }
+
+   function viewCustomer(index) {
+  const customer = customerData[index];
+  const viewDetailsElement = document.getElementById("viewDetails");
+
+  if (!viewDetailsElement) {
+    console.error("The viewDetails element is missing from the DOM.");
+    return;
+  }
+
+  viewDetailsElement.style.display = "block";
+  document.getElementById("viewSno").innerText = customer.sno;
+  document.getElementById("viewBranch").innerText = customer.branch;
+  document.getElementById("viewCustomerId").innerText = customer.customerId;
+  document.getElementById("viewCustomerName").innerText = customer.customerName;
+  document.getElementById("viewContactNo").innerText = customer.contactNo;
+  document.getElementById("viewBillingAddress").innerText = customer.billingAddress;
+}
+
+function triggerFileImport() {
+  const fileInput = document.getElementById("importFileInput");
+  if (fileInput) {
+    fileInput.click(); // Simulate a click on the hidden file input
+  } else {
+    console.error("File input element not found.");
+  }
+}
+
+// Handle file selection
+document.getElementById("importFileInput").addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    console.log(`File selected: ${file.name}`);
+    // Perform validation or further processing here
+  } else {
+    console.log("No file selected.");
+  }
+  document.getElementById("importFileInput").addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    // Validate file type
+    const validExtensions = ["csv", "xlsx"];
+    const fileExtension = file.name.split(".").pop().toLowerCase();
+    if (!validExtensions.includes(fileExtension)) {
+      alert("Invalid file type. Please select a .csv or .xlsx file.");
+      return;
+    }
+
+    // Validate file size (optional, e.g., max 2MB)
+    const maxSize = 2 * 1024 * 1024; // 2MB
+    if (file.size > maxSize) {
+      alert("File size exceeds the maximum limit of 2MB.");
+      return;
+    }
+
+    // Process the file (e.g., read content or upload)
+    console.log(`File "${file.name}" is valid and ready for processing.`);
+  } else {
+    console.log("No file selected.");
+  }
+});
+
+});
+
+   // Update the customer table
+   function updateTable() {
+     const tableBody = document.getElementById("customerTable").getElementsByTagName('tbody')[0];
+     tableBody.innerHTML = "";
+     customerData.forEach((customer, index) => {
+       const row = tableBody.insertRow();
+       row.innerHTML = `
+         <td>${customer.sno}</td>
+         <td>${customer.branch}</td>
+         <td>${customer.customerId}</td>
+         <td>${customer.customerName}</td>
+         <td>${customer.contactNo}</td>
+         <td>${customer.billingAddress}</td>
+         <td>
+           <div class="actions-btn">
+                    <button class="view-btn" onclick="viewCustomer(${index})">View</button>
+             <button class="edit-btn" onclick="editCustomer(${index})">Edit</button>
+             <button class="delete-btn" onclick="deleteCustomer(${index})">Delete</button>
+           </div>
+         </td>
+       `;
+     });
+   }
+ </script>
+           <!-- plugins:js -->
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="../../vendors/chart.js/Chart.min.js"></script>
+  <script src="../../vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="../../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <script src="../../js/dataTables.select.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/hoverable-collapse.js"></script>
+  <script src="../../js/template.js"></script>
+  <script src="../../js/settings.js"></script>
+  <script src="../../js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="../../js/dashboard.js"></script>
+  <script src="../../js/Chart.roundedBarCharts.js"></script>
+  <!-- End custom js for this page-->
+
+        
+</body>
+</html>

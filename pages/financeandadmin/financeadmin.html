@@ -31,26 +31,30 @@
       background-color: #f9f9f9;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
        }
-
+   .financecontainer{
+    width: 100vw;
+  max-width: 800px;
+  top: 60;
+  /* margin: 20px auto; */
+  padding-left: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   }
+   .financeform{
+    display: flex;
+  flex-direction: column;
+   }
+   .financeform h4{
+    font-size: 25px;
+    color:grey
+   }
     .form-section {
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
-
-    .form-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #343a40;
-      margin-bottom: 15px;
-    }
-
-    .btn-custom {
-      background-color: #007bff;
-      color: #ffffff;
-      border-radius: 5px;
+    .btn-primary {
+      width: 100%;
     }
   </style>
   <div class="container-scroller">
@@ -126,7 +130,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a href="../../pages/settings/Login.html" class="btn btn-primary">Login</a>
+            <a href="../../pages/login/Login.html" class="btn btn-primary">Login</a>
           </li>
                     <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -209,37 +213,20 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../pages/documentation/supplier.html">
+              <a class="nav-link" href="../../pages/supplier/supplier.html">
                 <i class="fa-solid fa-person menu-icon"></i>              <span class="menu-title">Supplier</span>
-                <!-- <i class="menu-arrow"></i> -->
               </a>
-              <!-- <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/charts/sales.html">Sales</a></li>
-                </ul>
-              </div> -->
-            </li>
+          </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../../pages/tables/financeadmin.html">
+              <a class="nav-link"  href="../../pages/financeandadmin/financeadmin.html">
                 <i class="fa-solid fa-coins menu-icon"></i>              <span class="menu-title">Finance/Admin</span>
-                <!-- <i class="menu-arrow"></i> -->
               </a>
-              <!-- <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                </ul>
-              </div> -->
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../../pages/charts/sales.html" >
-                <i class="fa-brands fa-adversal menu-icon"></i>                 <span class="menu-title">Sales</span>
-                <!-- <i class="menu-arrow"></i> -->
+              <a class="nav-link"  href="../../pages/sales/sales.html" >
+                <i class="fa-brands fa-adversal menu-icon"></i>               
+                  <span class="menu-title">Sales</span>
               </a>
-              <!-- <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                </ul>
-              </div> -->
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
@@ -257,102 +244,188 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../../pages/settings/hrms.html">
-                <i class="fa-solid fa-bars menu-icon"></i>              <span class="menu-title">HRMS</span>
+              <a class="nav-link"  href="../../pages/hrms/hrms.html">
+                <i class="fa-solid fa-bars menu-icon"></i>              
+                <span class="menu-title">HRMS</span>
               </a>
-             
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../../pages/documentation/myspace.html">
+             </li>
+             <li class="nav-item">
+              <a class="nav-link" href="../../pages/myspace/myspace.html">
                 <i class="icon-paper menu-icon"></i>
                 <span class="menu-title">My Space</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../pages/documentation/supplychain.html">
-                <i class="fa-solid fa-industry menu-icon" ></i>              <span class="menu-title">Supply Chain</span>
+              <a class="nav-link" href="../../pages/supplychain/supplychain.html">
+                <i class="fa-solid fa-industry menu-icon" ></i>             
+                 <span class="menu-title">Supply Chain</span>
               </a>
             </li>
           </ul>
         </nav>
       </div>
-      <div class="container mt-4">
-        <h2 class="text-center mb-4">SupplyChain</h2>
-    
-        <!-- Vehicle Add Form -->
-        <div class="form-section">
-          <div class="form-title">Vehicle Add Form</div>
-          <form>
-            <div class="mb-3">
-              <label for="vehicleNumber" class="form-label">Vehicle Number</label>
-              <input type="text" class="form-control" id="vehicleNumber" placeholder="Enter vehicle number">
-            </div>
-            <div class="mb-3">
-              <label for="vehicleType" class="form-label">Vehicle Type</label>
-              <select class="form-select" id="vehicleType">
-                <option>Select vehicle type</option>
-                <option>Truck</option>
-                <option>Van</option>
-                <option>Bike</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="capacity" class="form-label">Load Capacity (in tons)</label>
-              <input type="number" class="form-control" id="capacity" placeholder="Enter load capacity">
-            </div>
-            <button type="submit" class="btn btn-custom">Add Vehicle</button>
-          </form>
-        </div>
-    
-        <!-- Porter Add Form -->
-        <div class="form-section">
-          <div class="form-title">Porter Add Form</div>
-          <form>
-            <div class="mb-3">
-              <label for="porterName" class="form-label">Porter Name</label>
-              <input type="text" class="form-control" id="porterName" placeholder="Enter porter name">
-            </div>
-            <div class="mb-3">
-              <label for="porterContact" class="form-label">Contact Number</label>
-              <input type="text" class="form-control" id="porterContact" placeholder="Enter contact number">
-            </div>
-            <div class="mb-3">
-              <label for="porterExperience" class="form-label">Experience (in years)</label>
-              <input type="number" class="form-control" id="porterExperience" placeholder="Enter experience">
-            </div>
-            <button type="submit" class="btn btn-custom">Add Porter</button>
-          </form>
-        </div>
-    
-        <!-- Delivery and Invoice Generation Form -->
-        <div class="form-section">
-          <div class="form-title">Delivery and Invoice Generation</div>
-          <form>
-            <div class="mb-3">
-              <label for="customerName" class="form-label">Customer Name</label>
-              <input type="text" class="form-control" id="customerName" placeholder="Enter customer name">
-            </div>
-            <div class="mb-3">
-              <label for="deliveryAddress" class="form-label">Delivery Address</label>
-              <textarea class="form-control" id="deliveryAddress" rows="2" placeholder="Enter delivery address"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="productDetails" class="form-label">Product Details</label>
-              <textarea class="form-control" id="productDetails" rows="3" placeholder="Enter product details (e.g., items and quantity)"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="vehicleSelect" class="form-label">Select Vehicle</label>
-              <select class="form-select" id="vehicleSelect">
-                <option>Select vehicle</option>
-                <option>Truck - Vehicle No: ABC123</option>
-                <option>Van - Vehicle No: XYZ456</option>
-                <option>Bike - Vehicle No: PQR789</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-custom">Generate Invoice</button>
-          </form>
-        </div>
-      </div>
+
+          <div class="financecontainer">
+            <h2>Finance & Admin </h2>
+            <form class="financeform">
+              
+              <!-- Budget Forecasting Form -->
+              <div class="form-section">
+                
+                <h4>1. Budget Forecasting</h4>
+                <div class="mb-3">
+                  <label for="projectName" class="form-label">Project/Cost Center Name</label>
+                  <input type="text" class="form-control" id="projectName" placeholder="Enter Project Name">
+                </div>
+                <div class="mb-3">
+                  <label for="plannedBudget" class="form-label">Planned Budget</label>
+                  <input type="number" class="form-control" id="plannedBudget" placeholder="Enter Planned Budget">
+                </div>
+                <div class="mb-3">
+                  <label for="actualSpending" class="form-label">Actual Spending</label>
+                  <input type="number" class="form-control" id="actualSpending" placeholder="Enter Actual Spending">
+                </div>
+                <div class="mb-3">
+                  <label for="forecastedBudget" class="form-label">Forecasted Budget</label>
+                  <input type="number" class="form-control" id="forecastedBudget" placeholder="Enter Forecasted Budget">
+                </div>
+                <div class="mb-3">
+                  <label for="forecastPeriod" class="form-label">Forecasted Period</label>
+                  <input type="date" class="form-control" id="forecastPeriod">
+                </div>
+                <div class="mb-3">
+                  <label for="approvalStatus" class="form-label">Budget Approval Status</label>
+                  <select class="form-select" id="approvalStatus">
+                    <option>Pending</option>
+                    <option>Approved</option>
+                    <option>Rejected</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="comments" class="form-label">Comments/Notes</label>
+                  <textarea class="form-control" id="comments" rows="4"></textarea>
+                </div>
+              </div>
+      
+              <!-- Invoice Form -->
+              <div class="form-section">
+                <h4>2. Invoice</h4>
+                <div class="mb-3">
+                  <label for="invoiceNumber" class="form-label">Invoice Number</label>
+                  <input type="text" class="form-control" id="invoiceNumber" placeholder="Enter Invoice Number">
+                </div>
+                <div class="mb-3">
+                  <label for="invoiceDate" class="form-label">Invoice Date</label>
+                  <input type="date" class="form-control" id="invoiceDate">
+                </div>
+                <div class="mb-3">
+                  <label for="supplierName" class="form-label">Supplier/Production Name</label>
+                  <input type="text" class="form-control" id="supplierName" placeholder="Enter Supplier/Production Name">
+                </div>
+                <div class="mb-3">
+                  <label for="invoiceAmount" class="form-label">Invoice Amount</label>
+                  <input type="number" class="form-control" id="invoiceAmount" placeholder="Enter Invoice Amount">
+                </div>
+                <div class="mb-3">
+                  <label for="taxRate" class="form-label">Tax Rate</label>
+                  <select class="form-select" id="taxRate">
+                    <option>5%</option>
+                    <option>10%</option>
+                    <option>20%</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="paymentStatus" class="form-label">Payment Status</label>
+                  <select class="form-select" id="paymentStatus">
+                    <option>Paid</option>
+                    <option>Pending</option>
+                    <option>Overdue</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="invoiceNotes" class="form-label">Notes</label>
+                  <textarea class="form-control" id="invoiceNotes" rows="4"></textarea>
+                </div>
+              </div>
+      
+              <!-- Expense Manager Entry Form -->
+              <div class="form-section">
+                <h4>3. Expense Manager Entry</h4>
+                <div class="mb-3">
+                  <label for="expenseType" class="form-label">Expense Type</label>
+                  <select class="form-select" id="expenseType">
+                    <option>Travel</option>
+                    <option>Office Supplies</option>
+                    <option>Utilities</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="expenseAmount" class="form-label">Amount</label>
+                  <input type="number" class="form-control" id="expenseAmount" placeholder="Enter Expense Amount">
+                </div>
+                <div class="mb-3">
+                  <label for="expenseDate" class="form-label">Date of Expense</label>
+                  <input type="date" class="form-control" id="expenseDate">
+                </div>
+                <div class="mb-3">
+                  <label for="employeeName" class="form-label">Employee Name</label>
+                  <input type="text" class="form-control" id="employeeName" placeholder="Enter Employee Name">
+                </div>
+                <div class="mb-3">
+                  <label for="expenseDetails" class="form-label">Expense Details</label>
+                  <textarea class="form-control" id="expenseDetails" rows="4"></textarea>
+                </div>
+              </div>
+      
+              <!-- Payment Collection Form -->
+              <div class="form-section">
+                <h4>4. Payment Collection</h4>
+                <div class="mb-3">
+                  <label for="paymentID" class="form-label">Payment ID</label>
+                  <input type="text" class="form-control" id="paymentID" placeholder="Enter Payment ID">
+                </div>
+                <div class="mb-3">
+                  <label for="clientName" class="form-label">Client Name</label>
+                  <input type="text" class="form-control" id="clientName" placeholder="Enter Client Name">
+                </div>
+                <div class="mb-3">
+                  <label for="paymentAmount" class="form-label">Amount</label>
+                  <input type="number" class="form-control" id="paymentAmount" placeholder="Enter Amount">
+                </div>
+                <div class="mb-3">
+                  <label for="paymentMethod" class="form-label">Payment Method</label>
+                  <select class="form-select" id="paymentMethod">
+                    <option>Cash</option>
+                    <option>Bank Transfer</option>
+                    <option>Credit Card</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="paymentDate" class="form-label">Payment Date</label>
+                  <input type="date" class="form-control" id="paymentDate">
+                </div>
+                <div class="mb-3">
+                  <label for="invoiceNumber" class="form-label">Invoice Number</label>
+                  <input type="text" class="form-control" id="invoiceNumber" placeholder="Enter Invoice Number">
+                </div>
+                <div class="mb-3">
+                  <label for="paymentStatus" class="form-label">Payment Status</label>
+                  <select class="form-select" id="paymentStatus">
+                    <option>Completed</option>
+                    <option>Pending</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="paymentNotes" class="form-label">Notes</label>
+                  <textarea class="form-control" id="paymentNotes" rows="4"></textarea>
+                </div>
+              </div>
+      
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary">Submit All Forms</button>
+            </form>
+          </div>
+     
     
 
   <!-- plugins:js -->

@@ -28,73 +28,55 @@
 <body>
   <style>
     body {
-      background-color: #f9f9f9;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
 
-    }
-    .form-container {
-      width: 100vw;
-  max-width: 800px;
-  top: 0;
-  /* margin-left: 20px; */
-  /* margin: 20px auto; */
-  padding-left: 20px;
-  background-color: #f9f9f9;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    }
-    .form-container h2 {
-      color: #333;
-      width:45%;
-      border-bottom: 2px solid #007BFF;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-    }
-    .form-row {
-      display: flex;
-      justify-content: space-between;
-      
-    }
-    .form-group {
-      width: 48%;
-    }
-    .form-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-    .form-group textarea {
-      resize: vertical;
-      height: 60px;
-    }
-    .form-actions {
+    .profile-header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
       text-align: center;
-      margin-top: 20px;
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
     }
-    .form-actions button {
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #343a40;
+      margin-bottom: 15px;
+    }
+
+    .post-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .music-card {
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .btn-custom {
+      background-color: #2575fc;
+      color: #fff;
       border-radius: 5px;
-      cursor: pointer;
-      margin: 0 10px;
-    }
-    .form-actions button:hover {
-      background: #0056b3;
     }
   </style>
   <div class="container-scroller">
@@ -170,7 +152,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a href="../../pages/settings/Login.html" class="btn btn-primary">Login</a>
+            <a href="../../pages/login/Login.html" class="btn btn-primary">Login</a>
           </li>
                     <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -253,38 +235,21 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../pages/documentation/supplier.html">
+              <a class="nav-link" href="../../pages/supplier/supplier.html">
                 <i class="fa-solid fa-person menu-icon"></i>              <span class="menu-title">Supplier</span>
-                <!-- <i class="menu-arrow"></i> -->
               </a>
-              <!-- <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/charts/sales.html">Sales</a></li>
-                </ul>
-              </div> -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="../../pages/tables/financeadmin.html">
-                <i class="fa-solid fa-coins menu-icon"></i>              <span class="menu-title">Finance/Admin</span>
-                <!-- <i class="menu-arrow"></i> -->
-              </a>
-              <!-- <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                </ul>
-              </div> -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="../../pages/charts/sales.html" >
-                <i class="fa-brands fa-adversal menu-icon"></i>                 <span class="menu-title">Sales</span>
-                <!-- <i class="menu-arrow"></i> -->
-              </a>
-              <!-- <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                </ul>
-              </div> -->
-            </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="../../pages/financeandadmin/financeadmin.html">
+              <i class="fa-solid fa-coins menu-icon"></i>              <span class="menu-title">Finance/Admin</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="../../pages/sales/sales.html" >
+              <i class="fa-brands fa-adversal menu-icon"></i>               
+                <span class="menu-title">Sales</span>
+            </a>
+          </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="icon-head menu-icon"></i>
@@ -301,185 +266,100 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../../pages/settings/hrms.html">
-                <i class="fa-solid fa-bars menu-icon"></i>              <span class="menu-title">HRMS</span>
+              <a class="nav-link"  href="../../pages/hrms/hrms.html">
+                <i class="fa-solid fa-bars menu-icon"></i>              
+                <span class="menu-title">HRMS</span>
               </a>
-             
-            </li>
+             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../pages/documentation/myspace.html">
+              <a class="nav-link" href="../../pages/myspace/myspace.html">
                 <i class="icon-paper menu-icon"></i>
                 <span class="menu-title">My Space</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../pages/documentation/supplychain.html">
-                <i class="fa-solid fa-industry menu-icon" ></i>              <span class="menu-title">Supply Chain</span>
+              <a class="nav-link" href="../../pages/supplychain/supplychain.html">
+                <i class="fa-solid fa-industry menu-icon" ></i>             
+                 <span class="menu-title">Supply Chain</span>
               </a>
             </li>
           </ul>
         </nav>
       </div>
-
-        <div class="form-container">
-          <!-- Supplier Entry Section -->
-          <h2>Supplier Entry</h2>
-          <form>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Supplier Name</label>
-                <input type="text" placeholder="Enter supplier name" required>
-              </div>
-              <div class="form-group">
-                <label>Supplier Code</label>
-                <input type="text" placeholder="Enter unique supplier code" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Contact Person</label>
-                <input type="text" placeholder="Enter contact person">
-              </div>
-              <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" placeholder="Enter phone number">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Billing Address</label>
-                <textarea placeholder="Enter billing address"></textarea>
-              </div>
-              <div class="form-group">
-                <label>Shipping Address</label>
-                <textarea placeholder="Enter shipping address"></textarea>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>PAN Number</label>
-                <input type="text" placeholder="Enter PAN number">
-              </div>
-              <div class="form-group">
-                <label>GSTIN</label>
-                <input type="text" placeholder="Enter GSTIN">
-              </div>
-            </div>
-      
-            <!-- Return Stock Section -->
-            <h2>Return Stock</h2>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Return ID</label>
-                <input type="text" placeholder="Enter return ID">
-              </div>
-              <div class="form-group">
-                <label>Supplier/Customer Name</label>
-                <input type="text" placeholder="Enter supplier/customer name">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Product Name</label>
-                <input type="text" placeholder="Enter product name">
-              </div>
-              <div class="form-group">
-                <label>Quantity</label>
-                <input type="number" placeholder="Enter quantity returned">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Reason for Return</label>
-              <textarea placeholder="Reason for return"></textarea>
-            </div>
-      
-            <!-- Stock Development Section -->
-            <h2>Stock Development</h2>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Stock ID</label>
-                <input type="text" placeholder="Enter stock ID">
-              </div>
-              <div class="form-group">
-                <label>Product Name</label>
-                <input type="text" placeholder="Enter product name">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Current Stock Quantity</label>
-                <input type="number" placeholder="Enter current stock quantity">
-              </div>
-              <div class="form-group">
-                <label>Adjustment Quantity</label>
-                <input type="number" placeholder="Enter adjustment quantity">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Reason for Adjustment</label>
-              <textarea placeholder="Enter reason"></textarea>
-            </div>
-      
-            <!-- Product Management Section -->
-            <h2>Product Management</h2>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Product Name</label>
-                <input type="text" placeholder="Enter product name">
-              </div>
-              <div class="form-group">
-                <label>Barcode</label>
-                <input type="text" placeholder="Enter barcode">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Price</label>
-                <input type="number" placeholder="Enter price">
-              </div>
-              <div class="form-group">
-                <label>Stock Quantity</label>
-                <input type="number" placeholder="Enter stock quantity">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Bin Location</label>
-              <textarea placeholder="Enter bin location"></textarea>
-            </div>
-      
-            <!-- Billing Management Section -->
-            <h2>Billing Management</h2>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Invoice Number</label>
-                <input type="text" placeholder="Enter invoice number">
-              </div>
-              <div class="form-group">
-                <label>Customer/Supplier Name</label>
-                <input type="text" placeholder="Enter name">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Total Amount</label>
-                <input type="number" placeholder="Enter total amount">
-              </div>
-              <div class="form-group">
-                <label>Payment Method</label>
-                <select>
-                  <option>Cash</option>
-                  <option>Credit Card</option>
-                  <option>Bank Transfer</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-actions">
-              <button type="submit">Submit</button>
-              <button type="reset">Reset</button>
-            </div>
-          </form>
+      <div class="container mt-4">
+        <!-- Profile Section -->
+        <div class="profile-header">
+          <img src="https://via.placeholder.com/150" alt="Profile Image" class="profile-img">
+          <h1>John Doe</h1>
+          <p>Music Lover | Blogger | Web Enthusiast</p>
         </div>
     
+        <!-- Posts Section -->
+        <div class="section-title">Recent Posts</div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="post-card">
+              <h5>My Latest Blog Post</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at nisl quis felis consequat scelerisque.</p>
+              <button class="btn btn-custom">Read More</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="post-card">
+              <h5>Upcoming Event: Live Concert</h5>
+              <p>Join me this Friday for an exciting live concert event featuring top artists!</p>
+              <button class="btn btn-custom">Get Tickets</button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Music Playlist Section -->
+        <div class="section-title">My Favorite Music</div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="music-card text-center">
+              <h6>Track 1</h6>
+              <p>Artist: The Weeknd</p>
+              <button class="btn btn-sm btn-custom">Play</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="music-card text-center">
+              <h6>Track 2</h6>
+              <p>Artist: Billie Eilish</p>
+              <button class="btn btn-sm btn-custom">Play</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="music-card text-center">
+              <h6>Track 3</h6>
+              <p>Artist: Imagine Dragons</p>
+              <button class="btn btn-sm btn-custom">Play</button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Friends Section -->
+        <div class="section-title">My Friends</div>
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <img src="https://via.placeholder.com/100" alt="Friend Image" class="img-fluid rounded-circle mb-2">
+            <h6>Jane Smith</h6>
+          </div>
+          <div class="col-md-3 text-center">
+            <img src="https://via.placeholder.com/100" alt="Friend Image" class="img-fluid rounded-circle mb-2">
+            <h6>Mike Johnson</h6>
+          </div>
+          <div class="col-md-3 text-center">
+            <img src="https://via.placeholder.com/100" alt="Friend Image" class="img-fluid rounded-circle mb-2">
+            <h6>Emily Davis</h6>
+          </div>
+          <div class="col-md-3 text-center">
+            <img src="https://via.placeholder.com/100" alt="Friend Image" class="img-fluid rounded-circle mb-2">
+            <h6>Chris Lee</h6>
+          </div>
+        </div>
+      </div>
 
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>

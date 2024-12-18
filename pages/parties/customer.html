@@ -27,16 +27,28 @@
 </head>
 <body>
   <style>
+    * {
+  box-sizing: border-box;
+}
+
     body{
       background-color: #f9f9f9;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
     }
+    .required-label::after {
+    content: '*';
+    color: red;
+    margin-left: 5px;
+  }
     .customer-page-container {
-  width: 100vw;
-  max-width: 800px;
-  top: 0;
+      width: calc(100% - 280px); /* Adjust this value based on the sidebar width */
+  margin-left: 280px; /* Offset the form to account for the sidebar */
+    top: 0;
+margin-right: 90px;
   /* margin: 20px auto; */
-  padding-left: 20px;
+  padding: 0 20px; /* Adds padding without affecting width */
   background-color: #f9f9f9;
   border: 2px solid #ddd;
   border-radius: 8px;
@@ -47,6 +59,7 @@
 h2 {
   text-align: center;
   color: #333;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -54,7 +67,9 @@ h2 {
 .customer-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
+  width: 100%;
+  
 }
 
 .form-row {
@@ -67,6 +82,7 @@ h2 {
   flex: 1;
   display: flex;
   flex-direction: column;
+  
 }
 .form-group input:focus, 
 .form-group select:focus {
@@ -78,6 +94,7 @@ h2 {
   font-weight: bold;
   color: #555;
   margin-bottom: 5px;
+  
 }
 
 .form-group input,
@@ -91,17 +108,18 @@ h2 {
 /* Button Actions */
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 20px;
 }
 
 .btn-submit,
 .btn-reset {
-  width: 48%;
+  width: 140px;
   padding: 10px 0;
   font-size: 16px;
   color: white;
   border: none;
+  margin-bottom: 20px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -129,7 +147,7 @@ h2 {
     flex-direction: column;
     gap: 15px;
   }
-
+ 
   .btn-submit,
   .btn-reset {
     width: 100%;
@@ -346,51 +364,79 @@ h2 {
       <div class="customer-page-container">
         <h2>Parties-Customer</h2>
         <form class="customer-form">
+          <div class="form-group">
+            <label for="branch" class="required-label">Select Your Branch</label>
+            <select id="branch" name="branch" required>
+              <option value="" disabled selected>Select a branch</option>
+              <option value="branch1">Branch 1</option>
+              <option value="branch2">Branch 2</option>
+              <option value="branch3">Branch 3</option>
+              <option value="branch4">Branch 4</option>
+              <option value="branch5">Branch 5</option>
+            </select>
+          </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="customer-name">Customer Name</label>
+              <label for="customer-name" class="required-label">Customer Name</label>
               <input type="text" id="customer-name" name="customer-name" placeholder="Enter customer name" required />
             </div>
             <div class="form-group">
-              <label for="contact-number">Contact Number</label>
+              <label for="contact-number" class="required-label">Contact Number</label>
               <input type="tel" id="contact-number" name="contact-number" placeholder="Enter contact number" required />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email" class="required-label">Email</label>
               <input type="email" id="email" name="email" placeholder="Enter email address" />
             </div>
             <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" id="city" name="city" placeholder="Enter city" />
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" placeholder="Enter your website" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="state">State</label>
-              <input type="text" id="state" name="state" placeholder="Enter state" />
+              <label for="contactpersonname" class="required-label">Contact Person Name</label>
+              <input type="text" id="contactpersonname" name="contactpersonname" placeholder="Enter Contact Person" />
             </div>
             <div class="form-group">
-              <label for="zip-code">ZIP Code</label>
-              <input type="text" id="zip-code" name="zip-code" placeholder="Enter ZIP code" />
+              <label for="contactpersonemail">Contact Person E-mail</label>
+              <input type="email" id="contactpersonemail" name="contactpersonemail" placeholder="Enter Contact Person Email" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="customer-type">Customer Type</label>
-              <select id="customer-type" name="customer-type">
-                <option value="individual">Individual</option>
-                <option value="business">Business</option>
-              </select>
+              <label for="contactpersonphone" class="required-label">Contact Person Phone</label>
+              <input type="text" id="contactpersonephone" name="contactpersonphone" placeholder="Enter Contact Person Phone" />
+            
             </div>
             <div class="form-group">
-              <label for="payment-method">Payment Method</label>
-              <select id="payment-method" name="payment-method">
-                <option value="cash">Cash</option>
-                <option value="credit">Credit</option>
-                <option value="online">Online</option>
-              </select>
+              <label for="gstnumber" >GST Number</label>
+              <input type="text" id="gstnumber" name="gstnumber" placeholder="Enter Valid GSD Number" />
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pannumber" >Enter Valid Pan Number</label>
+              <input type="text" id="pannumber" name="pannumber" placeholder="Enter Valid Phone Number" />
+            
+            </div>
+            <div class="form-group">
+              <label for="billingaddress" class="required-label" >Billing Address</label>
+              <input type="text" id="billingaddress" name="billingaddress" placeholder="Enter Billing Address" />
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="shippingaddress" class="required-label">Enter Shipping Address</label>
+              <input type="text" id="shippingaddress" name="shippingaddress" placeholder="Enter Shipping Address" />
+            
+            </div>
+            <div class="form-group image-preview">
+              <label for="customer-image">Upload Your Picture</label>
+              <input type="file" id="customer-image" name="customer-image" accept="image/*" />
+              <img id="customer-image-preview" alt="Customer Preview" height="50px" width="50px"  />
             </div>
           </div>
           <div class="form-actions">

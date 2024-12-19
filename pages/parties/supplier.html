@@ -27,32 +27,45 @@
 </head>
 <body>
   <style>
-     body{
+    * {
+  box-sizing: border-box;
+}
+#add-phone-number{
+  border: none;
+  width:50%;
+  padding: 10px;
+  line-height: 10px;
+
+}
+    body{
       background-color: #f9f9f9;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
     }
-    /* Page Container */
-.supplier-page-container {
-  width: 100vw;
-  max-width: 800px;
-  top: 0;
+    .required-label::after {
+    content: '*';
+    color: red;
+    margin-left: 5px;
+  }
+    .supplier-page-container {
+      width: calc(100% - 280px); /* Adjust this value based on the sidebar width */
+  margin-left: 280px; /* Offset the form to account for the sidebar */
+    top: 0;
+margin-right: 90px;
   /* margin: 20px auto; */
-  padding-left: 20px;
+  padding: 0 20px; /* Adds padding without affecting width */
   background-color: #f9f9f9;
   border: 2px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.form-group input:focus, 
-.form-group select:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+
 /* Header */
 h2 {
   text-align: center;
-  color: #444;
+  color: #333;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -60,7 +73,9 @@ h2 {
 .supplier-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
+  width: 100%;
+  
 }
 
 .form-row {
@@ -73,16 +88,22 @@ h2 {
   flex: 1;
   display: flex;
   flex-direction: column;
+  
 }
-
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 .form-group label {
   font-weight: bold;
   color: #555;
   margin-bottom: 5px;
+  
 }
 
 .form-group input,
-.form-group textarea,
 .form-group select {
   padding: 8px 10px;
   border: 1px solid #ccc;
@@ -90,35 +111,32 @@ h2 {
   font-size: 14px;
 }
 
-textarea {
-  resize: none;
-}
-
 /* Button Actions */
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 20px;
 }
 
 .btn-submit,
 .btn-reset {
-  width: 48%;
+  width: 140px;
   padding: 10px 0;
   font-size: 16px;
   color: white;
   border: none;
+  margin-bottom: 20px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .btn-submit {
-  background-color: #28a745;
+  background-color: #007bff;
 }
 
 .btn-submit:hover {
-  background-color: #218838;
+  background-color: #0056b3;
 }
 
 .btn-reset {
@@ -126,7 +144,7 @@ textarea {
 }
 
 .btn-reset:hover {
-  background-color: #c82333;
+  background-color: #b02a37;
 }
 
 /* Responsive Adjustments */
@@ -135,13 +153,12 @@ textarea {
     flex-direction: column;
     gap: 15px;
   }
-
+ 
   .btn-submit,
   .btn-reset {
     width: 100%;
   }
 }
-
   </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -350,48 +367,89 @@ textarea {
           </ul>
         </nav>
       </div>
-
       <div class="supplier-page-container">
         <h2>Parties-Supplier</h2>
         <form class="supplier-form">
+          <div class="form-group">
+            <label for="branch" class="required-label">Select or Type Your Branch</label>
+            <input list="branches" id="branch" name="branch" required>
+            <datalist id="branches">
+              <option value="Branch 1">
+              <option value="Branch 2">
+              <option value="Branch 3">
+              <option value="Branch 4">
+              <option value="Branch 5">
+            </datalist>
+          </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="supplier-name">Supplier Name</label>
+              <label for="supplier-name" class="required-label">Supplier Name</label>
               <input type="text" id="supplier-name" name="supplier-name" placeholder="Enter supplier name" required />
             </div>
             <div class="form-group">
-              <label for="contact-number">Contact Number</label>
-              <input type="tel" id="contact-number" name="contact-number" placeholder="Enter contact number" required />
-            </div>
+              <label for="contact-number" class="required-label">Contact Numbers</label>
+    <!-- Container for phone number inputs -->
+    <div id="phone-number-container">
+      <input type="tel" id="contact-number-1" name="contact-number[]" placeholder="Enter contact number 1" required />
+    </div>
+    <!-- Button to add more phone number fields -->
+    <button type="button" id="add-phone-number" style="margin-top: 10px;">Add More Contact Numbers</button>
+  </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email" class="required-label">Email</label>
               <input type="email" id="email" name="email" placeholder="Enter email address" />
             </div>
             <div class="form-group">
-              <label for="designation">Designation</label>
-              <input type="text" id="designation" name="designation" placeholder="Enter designation" />
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" placeholder="Enter your website" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="billing-address">Billing Address</label>
-              <textarea id="billing-address" name="billing-address" rows="2" placeholder="Enter billing address"></textarea>
+              <label for="contactpersonname" class="required-label">Contact Person Name</label>
+              <input type="text" id="contactpersonname" name="contactpersonname" placeholder="Enter Contact Person" />
             </div>
             <div class="form-group">
-              <label for="shipping-address">Shipping Address</label>
-              <textarea id="shipping-address" name="shipping-address" rows="2" placeholder="Enter shipping address"></textarea>
-            </div>
+              <label for="contactpersonphone" class="required-label">Contact Person Phone</label>
+              <input type="text" id="contactpersonephone" name="contactpersonphone" placeholder="Enter Contact Person Phone" />
+            
+            
+             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="pan-number">PAN Number</label>
-              <input type="text" id="pan-number" name="pan-number" placeholder="Enter PAN number" />
+              <label for="contactpersonemail">Contact Person E-mail</label>
+              <input type="email" id="contactpersonemail" name="contactpersonemail" placeholder="Enter Contact Person Email" />
+            
             </div>
             <div class="form-group">
-              <label for="gst-number">GST Number</label>
-              <input type="text" id="gst-number" name="gst-number" placeholder="Enter GST number" />
+              <label for="gstnumber" >GST Number</label>
+              <input type="text" id="gstnumber" name="gstnumber" placeholder="Enter Valid GSD Number" />
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pannumber" > Pan Number</label>
+              <input type="text" id="pannumber" name="pannumber" placeholder="Enter Valid Pan Number" />
+            
+            </div>
+            <div class="form-group">
+              <label for="billingaddress" class="required-label" >Billing Address</label>
+              <input type="text" id="billingaddress" name="billingaddress" placeholder="Enter Billing Address" />
+          </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="shippingaddress" class="required-label">Enter Shipping Address</label>
+              <input type="text" id="shippingaddress" name="shippingaddress" placeholder="Enter Shipping Address" />
+            
+            </div>
+            <div class="form-group image-preview">
+              <label for="supplier-logo">Upload Your Logo</label>
+              <input type="file" id="supplier-logo" name="supplier-logo" accept="image/*" />
+              <img id="supplier-image-preview" alt="Supplier Preview" height="50px" width="50px"  />
             </div>
           </div>
           <div class="form-actions">
@@ -399,10 +457,27 @@ textarea {
             <button type="reset" class="btn-reset">Clear</button>
           </div>
         </form>
-        
-      
+
       </div>
-    
+     
+      <script>
+        // Add an event listener for the "Add More Phone Numbers" button
+        document.getElementById('add-phone-number').addEventListener('click', function() {
+          const phoneNumberContainer = document.getElementById('phone-number-container');
+          const phoneNumberCount = phoneNumberContainer.getElementsByTagName('input').length + 1; // Count current inputs
+          const newPhoneNumberField = document.createElement('input');
+          
+          newPhoneNumberField.type = 'tel';
+          newPhoneNumberField.name = 'contact-number[]';
+          newPhoneNumberField.id = 'contact-number-' + phoneNumberCount;
+          newPhoneNumberField.placeholder = 'Enter contact number ' + phoneNumberCount;
+          newPhoneNumberField.required = true;
+          
+          // Append the new phone number input field to the container
+          phoneNumberContainer.appendChild(newPhoneNumberField);
+        });
+      </script>
+      
 
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>

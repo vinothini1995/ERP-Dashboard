@@ -231,6 +231,11 @@
               <button id="importcustomerbutton" onclick="triggerFileImport()">Import Customer</button>
               <input type="file" id="importFileInput" accept=".csv, .xlsx" style="display: none;" />
                         </div>
+                        <div>
+                          <input type="text" id="searchInput" placeholder="Search Customer by Name" oninput="searchCustomers()" />
+                          <button id="cutomerentrypage">Customer entry page</button>
+
+                        </div>
         
             <!-- Customer Form (hidden initially) -->
             <div id="customerForm" class="customer-form">
@@ -288,8 +293,9 @@
                     <th>Actions</th>
 
                   </tr>
+                 
                 </thead>
-                <tbody>
+                <tbody id="tableBody">
                   <!-- Data will be appended here -->
                 </tbody>
               </table>
@@ -327,8 +333,12 @@ body{
 .customer-table {
 
     width: 900px;
+    margin-top: 40px;
 }
-
+#searchInput{
+  margin-top: 20px;
+  padding: 10px;
+}
 table {
   width: 100%; /* Table expands to the full width of its parent */
   border-collapse: collapse; /* Combines borders for a cleaner look */
@@ -409,14 +419,14 @@ table td {
 #addcustomerbutton{
   background-color:silver;
   color:black;
-  padding: 10px;
+  padding: 7px;
   border-radius: 15px;
  
 }
 #importcustomerbutton{
  background-color:silver;
   color:black;
-  padding: 10px;
+  padding: 7px;
   border-radius: 15px;
 
 }
@@ -516,18 +526,24 @@ textarea {
     }
 
     .edit-btn {
-      background-color: #ffc107;
-      color: white;
+      background-color: #e7cc7b;
+      color:black;
+      border-radius: 20px;
+      border: none;
     }
 
     .delete-btn {
-      background-color: #dc3545;
-      color: white;
+      background-color: #f18691;
+      color:black;
+      border-radius: 20px;
+      border: none;
     }
 
     .view-btn {
-      background-color: #28a745;
-      color: white;
+      background-color: #98e9ab;
+      color:black;
+      border-radius: 20px;
+      border: none;
     }
 
     .actions-btn button:hover {
@@ -542,20 +558,113 @@ textarea {
     .view-details p {
       font-size: 16px;
     }
-  
+    #cutomerentrypage{
+      color:rgb(215, 117, 248);
+      margin-left: 500px;
+      padding: 10px;
+      border: none;
+     
+    }
      </style>
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.14/dist/sweetalert2.all.min.js"></script>
  <script>
-   let customerData = [];
+let customerData = [
+  { sno: 1, branch: "Branch1", customerId: "C001", customerName: "John Doe", contactNo: "1234567890", billingAddress: "Address 1" },
+  { sno: 2, branch: "Branch2", customerId: "C002", customerName: "Jane Smith", contactNo: "0987654321", billingAddress: "Address 2" },
+  { sno: 3, branch: "Branch3", customerId: "C003", customerName: "Mike Johnson", contactNo: "1122334455", billingAddress: "Address 3" },
+  { sno: 4, branch: "Branch4", customerId: "C004", customerName: "Anna White", contactNo: "6677889900", billingAddress: "Address 4" },
+];
+
+// Display first three customers by default
+function displayDefaultCustomers() {
+  const defaultCustomers = customerData.slice(0, 4); // First 3 customers
+  const tbody = document.getElementById("customerTable").querySelector("tbody");
+  tbody.innerHTML = ""; // Clear table
+  defaultCustomers.forEach((customer, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${customer.sno}</td>
+      <td>${customer.branch}</td>
+      <td>${customer.customerId}</td>
+      <td>${customer.customerName}</td>
+      <td>${customer.contactNo}</td>
+      <td>${customer.billingAddress}</td>
+      <td>
+        <div class="actions-btn">
+          <button class="view-btn" onclick="viewCustomer(${index})">View</button>
+          <button class="edit-btn" onclick="editCustomer(${index})">Edit</button>
+          <button class="delete-btn" onclick="deleteCustomer(${index})">Delete</button>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
+}
    let editIndex = null;
 
    // Handle Add Customer button
+   document.addEventListener("DOMContentLoaded", displayDefaultCustomers);
+
    document.getElementById("addcustomerbutton").addEventListener("click", () => {
      document.getElementById("customerForm").style.display = "block";
      document.getElementById("formTitle").innerText = "Add Customer";
      document.getElementById("customerFormDetails").reset();
      editIndex = null;
    });
+   function updateTable(data) {
+  const tableBody = document.getElementById("tableBody");
+  tableBody.innerHTML = ""; // Clear existing table rows
+
+    // Ensure 'data' is a valid array
+    if (!Array.isArray(data)) {
+    console.error("Invalid data passed to updateTable");
+    return;
+  }
+  
+  data.forEach(customer => {
+    const row = `<tr>
+      <td>${customer.sno}</td>
+      <td>${customer.branch}</td>
+      <td>${customer.customerId}</td>
+      <td>${customer.customerName}</td>
+      <td>${customer.contactNo}</td>
+      <td>${customer.billingAddress}</td>
+      <td>
+        <div class="actions-btn">
+          <button class="view-btn" onclick="viewCustomer(${customer.sno})">View</button>
+          <button class="edit-btn" onclick="editCustomer(${customer.sno})">Edit</button>
+          <button class="delete-btn" onclick="deleteCustomer(${customer.sno})">Delete</button>
+        </div>
+      </td>
+     
+    </tr>`;
+    tableBody.innerHTML += row;
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("searchInput").addEventListener("input", searchCustomers);
+});
+
+function searchCustomers() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  console.log("Search Query:", query); // Debugging query value
+  
+  const filteredData = customerData.filter(customer => {
+    console.log("Customer being checked:", customer); // Debugging customer
+    return (
+      customer.customerName.toLowerCase().includes(query) ||
+      customer.customerId.toLowerCase().includes(query) ||
+      customer.branch.toLowerCase().includes(query)
+    );
+  });
+
+  console.log("Filtered Data:", filteredData); // Debugging filtered result
+  
+  updateTable(filteredData);
+}
+
 
    // Handle Customer Form Submit
    document.getElementById("customerFormDetails").addEventListener("submit", function (e) {
@@ -576,7 +685,7 @@ textarea {
        customerData[editIndex] = customer;
      }
 
-     updateTable();
+     updateTable(customerData);
      document.getElementById("customerForm").style.display = "none";
    });
 
@@ -706,29 +815,12 @@ document.getElementById("importFileInput").addEventListener("change", (event) =>
 
 });
 
-   // Update the customer table
-   function updateTable() {
-     const tableBody = document.getElementById("customerTable").getElementsByTagName('tbody')[0];
-     tableBody.innerHTML = "";
-     customerData.forEach((customer, index) => {
-       const row = tableBody.insertRow();
-       row.innerHTML = `
-         <td>${customer.sno}</td>
-         <td>${customer.branch}</td>
-         <td>${customer.customerId}</td>
-         <td>${customer.customerName}</td>
-         <td>${customer.contactNo}</td>
-         <td>${customer.billingAddress}</td>
-         <td>
-           <div class="actions-btn">
-                    <button class="view-btn" onclick="viewCustomer(${index})">View</button>
-             <button class="edit-btn" onclick="editCustomer(${index})">Edit</button>
-             <button class="delete-btn" onclick="deleteCustomer(${index})">Delete</button>
-           </div>
-         </td>
-       `;
-     });
-   }
+   
+ </script>
+ <script>
+  document.getElementById("custmorentrypage").addEventListener("click",function(){
+    window.location.href="https://stockifly.in/"
+  });
  </script>
            <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>

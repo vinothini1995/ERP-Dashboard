@@ -30,21 +30,39 @@
     body {
       background-color: #f9f9f9;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-       }
+      margin: 0;
+      padding: 0;
+    }
+       .form-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+    }
    .financecontainer{
-    width: 100vw;
-  max-width: 800px;
-  top: 60;
-  /* margin: 20px auto; */
-  padding-left: 20px;
-  background-color: #f9f9f9;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 280px);
+      /* Adjust this value based on the sidebar width */
+      margin-left: 280px;
+      /* Offset the form to account for the sidebar */
+      top: 0;
+      margin-right: 30px;
+      /* margin: 20px auto; */
+      padding: 0 20px;
+      /* Adds padding without affecting width */
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
    }
    .financeform{
-    display: flex;
-  flex-direction: column;
+       display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 100%;
    }
    .financeform h4{
     font-size: 25px;
@@ -52,10 +70,53 @@
    }
     .form-section {
       margin-bottom: 40px;
+      
     }
     .btn-primary {
       width: 100%;
     }
+    footer {
+            margin-left: 280px;
+            margin-top: 30px;
+            margin-right: 30px;
+            background-color: #6a6868;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-left,
+        footer .footer-right {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color:white;
+            text-decoration: none;
+            margin-right: 15px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                margin-left: 0;
+                text-align: center;
+                flex-direction: column;
+            }
+
+            footer .footer-left,
+            footer .footer-right {
+                margin-bottom: 15px;
+            }
+        }
   </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -153,6 +214,7 @@
         </button>
       </div>
     </nav>
+  </div>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
@@ -273,27 +335,36 @@
               <div class="form-section">
                 
                 <h4>1. Budget Forecasting</h4>
-                <div class="mb-3">
+                  <div class="form-row">
+                    <div class="form-group">
                   <label for="projectName" class="form-label">Project/Cost Center Name</label>
                   <input type="text" class="form-control" id="projectName" placeholder="Enter Project Name">
                 </div>
-                <div class="mb-3">
+                  <div class="form-group">
+
                   <label for="plannedBudget" class="form-label">Planned Budget</label>
                   <input type="number" class="form-control" id="plannedBudget" placeholder="Enter Planned Budget">
+                  </div>
                 </div>
-                <div class="mb-3">
+
+                  <div class="form-row">
+                    <div class="form-group">
                   <label for="actualSpending" class="form-label">Actual Spending</label>
                   <input type="number" class="form-control" id="actualSpending" placeholder="Enter Actual Spending">
                 </div>
-                <div class="mb-3">
+                
+                  <div class="form-group">
                   <label for="forecastedBudget" class="form-label">Forecasted Budget</label>
                   <input type="number" class="form-control" id="forecastedBudget" placeholder="Enter Forecasted Budget">
                 </div>
-                <div class="mb-3">
+                  </div>
+
+                  <div class="form-row">
+                  <div class="form-group"> 
                   <label for="forecastPeriod" class="form-label">Forecasted Period</label>
                   <input type="date" class="form-control" id="forecastPeriod">
                 </div>
-                <div class="mb-3">
+                  <div class="form-group">
                   <label for="approvalStatus" class="form-label">Budget Approval Status</label>
                   <select class="form-select" id="approvalStatus">
                     <option>Pending</option>
@@ -301,6 +372,8 @@
                     <option>Rejected</option>
                   </select>
                 </div>
+                </div>
+
                 <div class="mb-3">
                   <label for="comments" class="form-label">Comments/Notes</label>
                   <textarea class="form-control" id="comments" rows="4"></textarea>
@@ -310,23 +383,30 @@
               <!-- Invoice Form -->
               <div class="form-section">
                 <h4>2. Invoice</h4>
-                <div class="mb-3">
+                <div class="form-row">
+                  <div class="form-group">
                   <label for="invoiceNumber" class="form-label">Invoice Number</label>
                   <input type="text" class="form-control" id="invoiceNumber" placeholder="Enter Invoice Number">
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                   <label for="invoiceDate" class="form-label">Invoice Date</label>
                   <input type="date" class="form-control" id="invoiceDate">
                 </div>
-                <div class="mb-3">
+              </div>
+              
+                   <div class="form-row">
+                    <div class="form-group">
                   <label for="supplierName" class="form-label">Supplier/Production Name</label>
                   <input type="text" class="form-control" id="supplierName" placeholder="Enter Supplier/Production Name">
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                   <label for="invoiceAmount" class="form-label">Invoice Amount</label>
                   <input type="number" class="form-control" id="invoiceAmount" placeholder="Enter Invoice Amount">
                 </div>
-                <div class="mb-3">
+                   </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
                   <label for="taxRate" class="form-label">Tax Rate</label>
                   <select class="form-select" id="taxRate">
                     <option>5%</option>
@@ -334,7 +414,7 @@
                     <option>20%</option>
                   </select>
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                   <label for="paymentStatus" class="form-label">Payment Status</label>
                   <select class="form-select" id="paymentStatus">
                     <option>Paid</option>
@@ -342,16 +422,17 @@
                     <option>Overdue</option>
                   </select>
                 </div>
-                <div class="mb-3">
+                </div>
+
                   <label for="invoiceNotes" class="form-label">Notes</label>
                   <textarea class="form-control" id="invoiceNotes" rows="4"></textarea>
                 </div>
-              </div>
       
               <!-- Expense Manager Entry Form -->
               <div class="form-section">
                 <h4>3. Expense Manager Entry</h4>
-                <div class="mb-3">
+                <div class="form-row">
+                  <div class="form-group">
                   <label for="expenseType" class="form-label">Expense Type</label>
                   <select class="form-select" id="expenseType">
                     <option>Travel</option>
@@ -359,19 +440,25 @@
                     <option>Utilities</option>
                   </select>
                 </div>
-                <div class="mb-3">
+                <div class="form-group" >
                   <label for="expenseAmount" class="form-label">Amount</label>
                   <input type="number" class="form-control" id="expenseAmount" placeholder="Enter Expense Amount">
                 </div>
-                <div class="mb-3">
-                  <label for="expenseDate" class="form-label">Date of Expense</label>
+              </div>
+
+
+                   <div class="form-row">
+                    <div class="form-group">
+                   <label for="expenseDate" class="form-label">Date of Expense</label>
                   <input type="date" class="form-control" id="expenseDate">
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                   <label for="employeeName" class="form-label">Employee Name</label>
                   <input type="text" class="form-control" id="employeeName" placeholder="Enter Employee Name">
                 </div>
-                <div class="mb-3">
+              </div>
+
+                <div class="form-group">
                   <label for="expenseDetails" class="form-label">Expense Details</label>
                   <textarea class="form-control" id="expenseDetails" rows="4"></textarea>
                 </div>
@@ -380,19 +467,23 @@
               <!-- Payment Collection Form -->
               <div class="form-section">
                 <h4>4. Payment Collection</h4>
-                <div class="mb-3">
+                <div class="form-row">
+                  <div class="form-group"> 
                   <label for="paymentID" class="form-label">Payment ID</label>
                   <input type="text" class="form-control" id="paymentID" placeholder="Enter Payment ID">
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                   <label for="clientName" class="form-label">Client Name</label>
                   <input type="text" class="form-control" id="clientName" placeholder="Enter Client Name">
                 </div>
-                <div class="mb-3">
+              </div>
+
+                <div class="form-row">
+                  <div class="form-group">
                   <label for="paymentAmount" class="form-label">Amount</label>
                   <input type="number" class="form-control" id="paymentAmount" placeholder="Enter Amount">
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                   <label for="paymentMethod" class="form-label">Payment Method</label>
                   <select class="form-select" id="paymentMethod">
                     <option>Cash</option>
@@ -400,22 +491,29 @@
                     <option>Credit Card</option>
                   </select>
                 </div>
-                <div class="mb-3">
+              </div>
+
+                <div class="form-row">
+                  <div class="form-group">
                   <label for="paymentDate" class="form-label">Payment Date</label>
                   <input type="date" class="form-control" id="paymentDate">
                 </div>
-                <div class="mb-3">
+                <div class="form-group">
                   <label for="invoiceNumber" class="form-label">Invoice Number</label>
                   <input type="text" class="form-control" id="invoiceNumber" placeholder="Enter Invoice Number">
                 </div>
-                <div class="mb-3">
+              </div>
+
+
+                <div class="form-group">
                   <label for="paymentStatus" class="form-label">Payment Status</label>
                   <select class="form-select" id="paymentStatus">
                     <option>Completed</option>
                     <option>Pending</option>
                   </select>
                 </div>
-                <div class="mb-3">
+
+                <div class="form-group">
                   <label for="paymentNotes" class="form-label">Notes</label>
                   <textarea class="form-control" id="paymentNotes" rows="4"></textarea>
                 </div>
@@ -425,6 +523,17 @@
               <button type="submit" class="btn btn-primary">Submit All Forms</button>
             </form>
           </div>
+    </div>
+    <footer>
+      <div class="footer-left">
+          <p>&copy; 2024 KSKM TECHNOVA PRIVATE LIMITED. All Rights Reserved.</p>
+      </div>
+      <div class="footer-right">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact Us</a>
+      </div>
+  </footer>
      
     
 

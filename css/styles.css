@@ -30,7 +30,7 @@ body.collapsed {
   width: 250px;
   background-color: #343a40; /* Sidebar background color */
   color: white;
-  overflow-y: auto;
+  overflow-y: visible;
   z-index: 1000;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transition: width 0.3s ease;
@@ -76,3 +76,4 @@ body.collapsed .main-content {
   margin-left: 10px;
   width: calc(100% - 10px);
 }
+

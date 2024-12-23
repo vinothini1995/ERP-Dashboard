@@ -31,26 +31,32 @@
   document.head.appendChild(baseTag);
   </script>
 </head>
-<head>
-  <!-- <script>
-    if (window.location.hostname === 'localhost') {
-      document.write('<base href="/">');
-    } else {
-      document.write('<base href="https://vinothini1995.github.io/ERP-Dashboard/">');
-    }
-  </script> -->
-</head>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.querySelector('body');
+  const toggleButton = document.getElementById('toggleSidebarButton');
+
+  toggleButton.addEventListener('click', () => {
+    body.classList.toggle('collapsed'); // Custom toggle logic
+  });
+});
+
+
+
+
+
+</script>
 
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="./index.html"><img src="./images/Vinoimages/logo2.jpg" class="mr-2" alt="logo" style="width: 70px; height: 60px;"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="./index.html"><img src="./images/Vinoimages/logo2.jpg" class="mr-2" alt="logo1" style="width: 70px; height: 60px;"/></a>
         <a class="navbar-brand brand-logo-mini" href="./index.html"><img src="./images/Vinoimages/logo2.jpg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <button class="navbar-toggler navbar-toggler align-self-center" id="toggleSidebarButton" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
         <ul class="navbar-nav mr-lg-2">
@@ -164,7 +170,6 @@
       
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
-      <div class="layout">
 
       <nav class="sidebar sidebar-offcanvas" id="sidebar" href="./css/">
         <ul class="nav">
@@ -258,7 +263,6 @@
 
         </ul>
       </nav>
-      </div>
       <!-- <main class="main-content">
          Dynamic content will load here -->
         <!-- <iframe id="content-frame" src="index.html" frameborder="0"></iframe>
@@ -927,8 +931,10 @@
       </div>
       <!-- main-panel ends -->
     </div>   
-    <!-- page-body-wrapper ends -->
   </div>
+  
+    <!-- page-body-wrapper ends -->
+  
   <!-- container-scroller -->
 
   <!-- plugins:js -->

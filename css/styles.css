@@ -1,72 +1,78 @@
-
-/* html, body {
+/* Reset margins and padding for body and html */
+html, body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
-} */
-  body {
-    margin-left: 250px;
-    width: 100vw;
-  }
-  /* Container for layout */
-.layout {
-    display: flex;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden;
-  }
-  
-  /* Sidebar styling */
-  .sidebar {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    height: 100vh;
-    width: 250px;
-    background-color: #343a40; /* Sidebar background color */
-    color: white;
-    overflow-y: auto; /* Allow scrolling for sidebar content */
-    z-index: 1000;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar .nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar .nav-item {
-    margin: 0;
-  }
-  
-  .sidebar .nav-link {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .sidebar .nav-link:hover {
-    background-color: #495057;
-  }
-  
-  /* Main content area */
-  .main-content {
-    margin-left: 250px; 
-    width: calc(100% - 250px); 
-    overflow-y: auto;
-    background-color: #e81010; /* Optional: Background color */
+  height: 100%;
+  width: 100%;
+}
 
-  }
-  .sidebar.collapsed ~ .main-content {
-    margin-left: 0;
-    
-  }
-  main iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  
+/* Default body state with a full sidebar */
+body {
+  margin-left: 250px!important;
+  background-color: white!important; /* Default background */
+  transition: margin-left 0.3s ease;
+}
+
+body.collapsed {
+  margin-left: 70px !important;
+  width: 100vw;
+  /* width: calc(100vw - 70px); Space around the '-' operator is added */
+  background-color:white !important; /* Background for minimized state */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Sidebar styling */
+.sidebar {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #343a40; /* Sidebar background color */
+  color: white;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+}
+
+
+
+/* Sidebar navigation links */
+.sidebar .nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar .nav-item {
+  margin: 0;
+}
+
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+
+.sidebar .nav-link:hover {
+  background-color: #495057;
+}
+
+/* Main content styling */
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  overflow-y: auto;
+  background-color: #e81010; /* Optional background color */
+  transition: margin-left 0.3s ease;
+}
+
+/* Adjust main content for minimized sidebar */
+body.collapsed .main-content {
+  margin-left: 10px;
+  width: calc(100% - 10px);
+}

@@ -26,6 +26,16 @@
   <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.querySelector('body');
+      const toggleButton = document.getElementById('toggleSidebarButton');
+    
+      toggleButton.addEventListener('click', () => {
+        body.classList.toggle('collapsed'); // Custom toggle logic
+      });
+    });
+  </script>
   <style>
      body{
       background-color: #f9f9f9;
@@ -35,20 +45,11 @@
     }
     /* Page Container */
 .product-page-container {
-  width: calc(100% - 280px);
-      /* Adjust this value based on the sidebar width */
-      margin-left: 280px;
-      /* Offset the form to account for the sidebar */
-      top: 0;
-      margin-right: 30px;
-      /* margin: 20px auto; */
-      padding: 0 20px;
-      /* Adds padding without affecting width */
-      background-color: #f9f9f9;
+  width: 100%; 
+      padding:  20px;
+      background-color:#F5F7FF;
       border: 1px solid #ddd;
-      /* border-radius: 8px; */
-      /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-   
+      overflow: auto; 
 }
 
 /* Header */
@@ -145,15 +146,12 @@ textarea {
   }
 }
 footer {
-            margin-left: 280px;
-            margin-top: 30px;
-            margin-right: 30px;
+  margin-top: 30px;
             background-color: #6a6868;
             color: white;
-            padding: 20px 30px;
+            padding: 20px 90px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
             flex-wrap: wrap;
         }
 
@@ -196,7 +194,7 @@ footer {
         <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/Vinoimages/logo2.jpg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <button class="navbar-toggler navbar-toggler align-self-center" id="toggleSidebarButton" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
         <ul class="navbar-nav mr-lg-2">
@@ -284,7 +282,6 @@ footer {
         </button>
       </div>
     </nav>
-  </div>
 
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -310,7 +307,6 @@ footer {
       
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
-      <div class="layout">
 
         <nav class="sidebar sidebar-offcanvas" id="sidebar" href="../../css/">
           <ul class="nav">
@@ -397,8 +393,8 @@ footer {
             </li>
           </ul>
         </nav>
-      </div>
-
+      <div class="main-panel">
+        <div class="content-wrapper">
       <div class="product-page-container">
         <h2>Inventory-Products</h2>
         <form class="product-form">
@@ -460,18 +456,22 @@ footer {
           </div>
         </form>
       </div>
+      <footer>
+        <div class="footer-left">
+          <p>&copy; 2024 KSKM TECHNOVA PRIVATE LIMITED. All Rights Reserved.</p>
+      </div>
+      <div class="footer-right">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact Us</a>
+      </div>
+      </footer>
+        </div>
+      </div>
     </div>
-    <footer>
-      <div class="footer-left">
-        <p>&copy; 2024 KSKM TECHNOVA PRIVATE LIMITED. All Rights Reserved.</p>
-    </div>
-    <div class="footer-right">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Contact Us</a>
-    </div>
-    </footer>
-      
+   
+  </div>
+
       
       
     

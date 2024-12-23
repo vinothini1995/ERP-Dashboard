@@ -17,6 +17,16 @@
 
 </head>
 <body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.querySelector('body');
+      const toggleButton = document.getElementById('toggleSidebarButton');
+    
+      toggleButton.addEventListener('click', () => {
+        body.classList.toggle('collapsed'); // Custom toggle logic
+      });
+    });
+  </script>
     <div class="container-scroller">
 
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -25,7 +35,7 @@
           <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/Vinoimages/logo2.jpg" alt="logo"/></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <button class="navbar-toggler navbar-toggler align-self-center" id="toggleSidebarButton" type="button" data-toggle="minimize">
             <span class="icon-menu"></span>
           </button>
           <ul class="navbar-nav mr-lg-2">
@@ -136,7 +146,6 @@
         </div>
 
 
-        <div class="layout">
 
             <nav class="sidebar sidebar-offcanvas" id="sidebar" href="../../css/">
               <ul class="nav">
@@ -223,8 +232,9 @@
                 </li>
               </ul>
             </nav>
-          </div>
          
+            <div class="main-panel">
+              <div class="content-wrapper">
           <div class="container">
             <!-- Buttons Section -->
             <div class="buttons">
@@ -314,27 +324,85 @@
               <p><strong>Billing Address:</strong> <span id="viewBillingAddress"></span></p>
               <button onclick="closeModal()">Close</button>
             </div>
+            <footer>
+              <div class="footer-left">
+                  <p>&copy; 2024 KSKM TECHNOVA PRIVATE LIMITED. All Rights Reserved.</p>
+              </div>
+              <div class="footer-right">
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">Terms of Service</a>
+                  <a href="#">Contact Us</a>
+              </div>
+          </footer>
           </div>
           
-  
           </div>
-          
+          </div>
+              </div>
       </div>
+    </div>
      <style>
+      footer {
+            margin-top: 30px;
+         
+            background-color: #6a6868;
+            color: white;
+            padding: 20px 90px;
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+            flex-wrap: wrap;
+        }
+
+        footer .footer-left,
+        footer .footer-right {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color:white;
+            text-decoration: none;
+            margin-right: 15px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                margin-left: 0;
+                text-align: center;
+                flex-direction: column;
+            }
+
+            footer .footer-left,
+            footer .footer-right {
+                margin-bottom: 15px;
+            }
+        }
     .container {
-        background-color: #f9f9f9;
-    margin: 0px;
-    width: 100%;
+      width: 100%; 
+      padding:  20px;
+      background-color:#F5F7FF;
+      border: 1px solid #ddd;
+      overflow: auto;
 }
 body{
   background-color: #f9f9f9;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      
+      margin: 0;
+      padding: 0;
 }
 .customer-table {
 
-    width: 900px;
-    margin-top: 40px;
+  width: 100%; 
+      padding:  20px;
+      background-color:#F5F7FF;
+      border: 1px solid #ddd;
+      overflow: auto;
 }
 #searchInput{
   margin-top: 20px;

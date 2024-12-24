@@ -238,8 +238,8 @@
           <div class="container">
             <!-- Buttons Section -->
             <div class="buttons">
-              <button id="addcustomerbutton"  >Add Customer</button>
-              <button id="importcustomerbutton" onclick="triggerFileImport()">Import Customer</button>
+              <button id="addcustomerbutton"  ><i class="fa-solid fa-plus"  style="margin: 4px;padding: 2px;"></i>Add Customer</button>
+              <button id="importcustomerbutton" onclick="triggerFileImport()"><i class="fa-solid fa-file-import" style="margin: 4px;padding: 2px;"></i>Import Customer</button>
               <input type="file" id="importFileInput" accept=".csv, .xlsx" style="display: none;" />
                         </div>
                         <div>
@@ -404,7 +404,7 @@ body{
   width: 100%; 
       padding:  20px;
       background-color:#F5F7FF;
-      border: 1px solid #ddd;
+      border: none;
       overflow: auto;
 }
 #searchInput{
@@ -414,18 +414,20 @@ body{
 table {
   width: 100%; /* Table expands to the full width of its parent */
   border-collapse: collapse; /* Combines borders for a cleaner look */
-  background-color: #fff; /* White background for the table */
+  background-color:rgb(244, 237, 218)!important; /* White background for the table */
 }
 
 table th, 
 table td {
   padding: 10px 15px; /* Adds padding inside cells */
   text-align: left; /* Aligns text to the left */
-  border: 1px solid #ddd; /* Adds a subtle border around cells */
+  background-color: white;
+  border: 1px solid black; /* Adds a subtle border around cells */
 }
 
 table th {
-  background-color: #f4f4f4; /* Distinct background color for headers */
+  background-color: white; 
+  color: black;
 }
 
 table td {
@@ -489,17 +491,19 @@ table td {
     margin-top: -40px;
     }
 #addcustomerbutton{
-  background-color:silver;
+  background-color:#98e9ab;
   color:black;
   padding: 7px;
   border-radius: 15px;
- 
+ border: none;
 }
 #importcustomerbutton{
- background-color:silver;
+ background-color:#98e9ab;
   color:black;
   padding: 7px;
   border-radius: 15px;
+  border: none;
+
 
 }
 
@@ -592,22 +596,24 @@ textarea {
     }
 
     .edit-btn {
-      background-color: #e7cc7b;
-      color:black;
+      background-color:  #d5edd5;
+
+      color:green;
       border-radius: 20px;
       border: none;
     }
 
     .delete-btn {
-      background-color: #f18691;
-      color:black;
+      background-color:  #d5edd5;
+      color:green;
       border-radius: 20px;
       border: none;
     }
 
     .view-btn {
-      background-color: #98e9ab;
-      color:black;
+      background-color:  #d5edd5;
+
+      color:green;
       border-radius: 20px;
       border: none;
     }
@@ -659,9 +665,10 @@ function displayDefaultCustomers() {
       <td>${customer.billingAddress}</td>
       <td>
         <div class="actions-btn">
-          <button class="view-btn" onclick="viewCustomer(${index})">View</button>
-          <button class="edit-btn" onclick="editCustomer(${index})">Edit</button>
-          <button class="delete-btn" onclick="deleteCustomer(${index})">Delete</button>
+          <button class="view-btn" onclick="viewCustomer(${index})">  <i class="fa fa-eye"></i>
+</button>
+          <button class="edit-btn" onclick="editCustomer(${index})"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button class="delete-btn" onclick="deleteCustomer(${index})"><i class="fa-sharp fa-solid fa-trash"></i></button>
         </div>
       </td>
     `;
@@ -699,9 +706,9 @@ function displayDefaultCustomers() {
       <td>${customer.billingAddress}</td>
       <td>
         <div class="actions-btn">
-          <button class="view-btn" onclick="viewCustomer(${customer.sno})">View</button>
-          <button class="edit-btn" onclick="editCustomer(${customer.sno})">Edit</button>
-          <button class="delete-btn" onclick="deleteCustomer(${customer.sno})">Delete</button>
+          <button class="view-btn" onclick="viewCustomer(${customer.sno})"><i class="fa fa-eye"></i></button>
+          <button class="edit-btn" onclick="editCustomer(${customer.sno})"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button class="delete-btn" onclick="deleteCustomer(${customer.sno})"><i class="fa-sharp fa-solid fa-trash"></i></button>
         </div>
       </td>
      

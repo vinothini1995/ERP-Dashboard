@@ -181,7 +181,7 @@
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../../pages/supplier/supplier.html">
+                  <a class="nav-link" href="../../pages/supplier/mainsupplier.html">
                     <i class="fa-solid fa-person menu-icon"></i>              <span class="menu-title">Supplier</span>
                   </a>
               </li>
@@ -675,7 +675,7 @@ let customerData = [
 
 // Display first three customers by default
 function displayDefaultCustomers() {
-  const defaultCustomers = customerData.slice(0, 4); // First 3 customers
+  const defaultCustomers = customerData; // First 3 customers
   const tbody = document.getElementById("customerTable").querySelector("tbody");
   tbody.innerHTML = ""; // Clear table
   defaultCustomers.forEach((customer, index) => {
@@ -833,23 +833,29 @@ window.onclick = function (event) {
   }
 };
 
-   // Handle Delete button click with SweetAlert confirmation
-   function deleteCustomer(index) {
-     Swal.fire({
-       title: 'Are you sure?',
-       text: 'This will permanently delete the customer!',
-       icon: 'warning',
-       showCancelButton: true,
-       confirmButtonText: 'Yes, delete it!',
-       cancelButtonText: 'Cancel',
-     }).then((result) => {
-       if (result.isConfirmed) {
-         customerData.splice(index, 1);
-         updateTable();
-         Swal.fire('Deleted!', 'The customer has been deleted.', 'success');
-       }
-     });
-   }
+function deleteCustomer(index) {
+  console.log('Index to delete:', index);
+  if (typeof index === 'number' && index >= 0 && index < customerData.length) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This will permanently delete the customer!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        customerData.splice(index, 1);
+        updateTable();
+        Swal.fire('Deleted!', 'The customer has been deleted.', 'success');
+        console.log('Customer Data After Deletion:', customerData);
+      }
+    });
+  } else {
+    console.error('Invalid index:', index);
+  }
+}
+
 
    function viewCustomer(index) {
   const customer = customerData[index];

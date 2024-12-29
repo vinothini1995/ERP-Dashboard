@@ -243,7 +243,7 @@
               <input type="file" id="importFileInput" accept=".csv, .xlsx" style="display: none;" />
                         </div>
                         <div class="search-area">
-                          <input type="text" id="searchInput" placeholder="Search Customer by Name" oninput="searchCustomers()" />
+                          <input type="text" id="searchInput" placeholder="Search Customer by Name or Branch" oninput="searchCustomers()" />
                           <button id="cutomerentrypage" style="background-color: #007BFF;color: white; border: none; padding: 10px;" >Customer entry page</button>
 
                         </div>
@@ -256,35 +256,45 @@
                   <div class="form-group">
                     <label for="sno">S.No</label>
                     <input type="text" id="sno" name="sno" required>
+                    <span id="serialError" style="color: red;"></span><br><br>
                   </div>
                   <div class="form-group">
                     <label for="branch">Branch</label>
                     <input type="text" id="branch" name="branch" required>
+                    <span id="branchError" style="color: red;"></span><br><br>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label for="customerId">Customer ID</label>
                     <input type="text" id="customerId" name="customerId" required>
+                    <span id="idError" style="color: red;"></span><br><br>
+
                   </div>
                   <div class="form-group">
                     <label for="customerName">Customer Name</label>
                     <input type="text" id="customerName" name="customerName" required>
+                    <span id="nameError" style="color: red;"></span><br><br>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label for="contactNo">Contact No</label>
                     <input type="text" id="contactNo" name="contactNo" required>
+                    <span id="contactError" style="color: red;"></span><br><br>
+
                   </div>
                   <div class="form-group">
                     <label for="billingAddress">Billing Address</label>
                     <textarea id="billingAddress" name="billingAddress" required></textarea>
+
                   </div>
                 </div>
                 <div class="form-actions">
-                  <button type="submit" class="btn btn-submit">Save Customer</button>
+                  <button type="submit" id="saveid" class="btn btn-submit">Save Customer</button>
                   <button type="reset" class="btn btn-reset">Clear</button>
+                  <!-- <button type="save" id="saveid" style="display: none;">save</button> -->
+
                 </div>
               </form>
             </div>
@@ -667,173 +677,155 @@ textarea {
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.14/dist/sweetalert2.all.min.js"></script>
  <script>
 let customerData = [
-  { sno: 1, branch: "Branch1", customerId: "C001", customerName: "John Doe", contactNo: "1234567890", billingAddress: "Address 1" },
-  { sno: 2, branch: "Branch2", customerId: "C002", customerName: "Jane Smith", contactNo: "0987654321", billingAddress: "Address 2" },
-  { sno: 3, branch: "Branch3", customerId: "C003", customerName: "Mike Johnson", contactNo: "1122334455", billingAddress: "Address 3" },
-  { sno: 4, branch: "Branch4", customerId: "C004", customerName: "Anna White", contactNo: "6677889900", billingAddress: "Address 4" },
+  { sno: 1, branch: "Branch1", customerId: "C001", customerName: "customer1", contactNo: "1234567890", billingAddress: "Address 1" },
+  { sno: 2, branch: "Branch2", customerId: "C002", customerName: "customer2", contactNo: "0987654321", billingAddress: "Address 2" },
+  { sno: 3, branch: "Branch3", customerId: "C003", customerName: "customer3", contactNo: "1122334455", billingAddress: "Address 3" },
+  { sno: 4, branch: "Branch4", customerId: "C004", customerName: "customer4", contactNo: "6677889900", billingAddress: "Address 4" },
 ];
 
 // Display first three customers by default
-function displayDefaultCustomers() {
-  const defaultCustomers = customerData; // First 3 customers
-  const tbody = document.getElementById("customerTable").querySelector("tbody");
-  tbody.innerHTML = ""; // Clear table
-  defaultCustomers.forEach((customer, index) => {
+
+   let editingIndex = null;
+
+function updateTable(Filteredcustomers=customerData){
+   const tableBody=document.getElementById("customerTable").getElementsByTagName("tbody")[0];
+   tableBody.innerHTML="";
+
+   if(Filteredcustomers.length===0){
+    const row=document.createElement("tr");
+    row.innerHTML=`<td colspan="7">No Customers Found</td>`;
+    tableBody.appendChild(row);
+    return;
+   }
+   Filteredcustomers.forEach((customer, index) => {
     const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${customer.sno}</td>
-      <td>${customer.branch}</td>
-      <td>${customer.customerId}</td>
-      <td>${customer.customerName}</td>
-      <td>${customer.contactNo}</td>
-      <td>${customer.billingAddress}</td>
-      <td>
-        <div class="actions-btn">
-          <button class="view-btn" onclick="viewCustomer(${index})">  <i class="fa fa-eye"></i>
-</button>
-          <button class="edit-btn" onclick="editCustomer(${index})"><i class="fa-solid fa-pen-to-square"></i></button>
-          <button class="delete-btn" onclick="deleteCustomer(${index})"><i class="fa-sharp fa-solid fa-trash"></i></button>
-        </div>
-      </td>
-    `;
-    tbody.appendChild(row);
-  });
-}
-   let editIndex = null;
+                row.innerHTML = `
+                    <td>${customer.sno}</td>
+                    <td>${customer.branch}</td>
+                    <td>${customer.customerId}</td>
+                    <td>${customer.customerName}</td>
+                    <td>${customer.contactNo}</td>
+                    <td>${customer.billingAddress}</td>
+                    <td>
+                        <button class="view-btn" onclick="viewCustomer(${index})"><i class="fa fa-eye"></i></button>
+                        <button class="edit-btn" onclick="editCustomer(${index})"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="delete-btn" onclick="deleteCustomer(${index})"><i class="fa-sharp fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
 
-   // Handle Add Customer button
-   document.addEventListener("DOMContentLoaded", displayDefaultCustomers);
+} 
+ // Add Customer
+ document.getElementById("customerFormDetails").addEventListener("submit", function (e) {
+            e.preventDefault();
 
-   document.getElementById("addcustomerbutton").addEventListener("click", () => {
-     document.getElementById("customerForm").style.display = "block";
-     document.getElementById("formTitle").innerText = "Add Customer";
-     document.getElementById("customerFormDetails").reset();
-     editIndex = null;
-   });
-   function updateTable(data) {
-  const tableBody = document.getElementById("tableBody");
-  tableBody.innerHTML = ""; // Clear existing table rows
 
-    // Ensure 'data' is a valid array
-    if (!Array.isArray(data)) {
-    console.error("Invalid data passed to updateTable");
+            document.getElementById("serialError").innerText = "";
+            document.getElementById("branchError").innerText = "";
+            document.getElementById("idError").innerText = "";
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("contactError").innerText = "";
+  // Validate Serial Number (Only Numbers)
+  const serialNumber = document.getElementById("sno").value;
+  const serialPattern = /^[0-9]+$/;
+  if (!serialNumber || !serialPattern.test(serialNumber)) {
+    document.getElementById("serialError").innerText = "Serial Number must only contain numbers.";
     return;
   }
-  
-  data.forEach(customer => {
-    const row = `<tr>
-      <td>${customer.sno}</td>
-      <td>${customer.branch}</td>
-      <td>${customer.customerId}</td>
-      <td>${customer.customerName}</td>
-      <td>${customer.contactNo}</td>
-      <td>${customer.billingAddress}</td>
-      <td>
-        <div class="actions-btn">
-          <button class="view-btn" onclick="viewCustomer(${customer.sno})"><i class="fa fa-eye"></i></button>
-          <button class="edit-btn" onclick="editCustomer(${customer.sno})"><i class="fa-solid fa-pen-to-square"></i></button>
-          <button class="delete-btn" onclick="deleteCustomer(${customer.sno})"><i class="fa-sharp fa-solid fa-trash"></i></button>
-        </div>
-      </td>
-     
-    </tr>`;
-    tableBody.innerHTML += row;
-  });
-}
+    // Validate Branch (Only Letters)
+    const branch = document.getElementById("branch").value;
+  const branchPattern = /^[A-Za-z]+$/;
+  if (!branch || !branchPattern.test(branch)) {
+    document.getElementById("branchError").innerText = "Branch must contain only letters.";
+    return;
+  }
+   // Validate Customer ID (Letters & Numbers)
+   const customerId = document.getElementById("customerId").value;
+  const idPattern = /^[A-Za-z0-9]+$/;
+  if (!customerId || !idPattern.test(customerId)) {
+    document.getElementById("idError").innerText = "Customer ID must contain letters and numbers only.";
+    return;
+  }
+    // Validate Customer Name (Only Letters)
+    const customerName = document.getElementById("customerName").value;
+  const namePattern = /^[A-Za-z]+$/;
+  if (!customerName || !namePattern.test(customerName)) {
+    document.getElementById("nameError").innerText = "Customer Name must contain only letters.";
+    return;
+  }
+    // Validate Contact Number (10 Digits)
+    const contactNumber = document.getElementById("contactNo").value;
+  const contactPattern = /^[0-9]{10}$/; // 10 digit number
+  if (!contactNumber || !contactPattern.test(contactNumber)) {
+    document.getElementById("contactError").innerText = "Contact Number must be a 10-digit number.";
+    return;
+  }
+            const newCustomer = {
+                sno: document.getElementById("sno").value,
+                customerName: document.getElementById("customerName").value,
+                branch: document.getElementById("branch").value,
+                customerId:document.getElementById("customerId").value,
+                contactNo:document.getElementById("contactNo").value,
+                billingAddress:document.getElementById("billingAddress").value
+ };
 
+           
+            if (editingIndex === null) {
+                customerData.push(newCustomer); // Add new customer
+            } else {
+                customerData[editingIndex] = newCustomer; // Save edited customer
+                editingIndex = null; // Reset editing index
+                document.getElementById("saveid").style.display = "none";
+            }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("searchInput").addEventListener("input", searchCustomers);
+            updateTable(); // Refresh the table
+            document.getElementById("customerForm").style.display = "none"; // Hide the form
+            this.reset(); // Clear form fields
+        });
+            // Show Customer Form
+            document.getElementById("addcustomerbutton").addEventListener("click", function () {
+            document.getElementById("customerForm").style.display = "block";
+        });
+   // Close Customer Form
+document.getElementById("customerForm").addEventListener("reset", function () {
+    document.getElementById("customerForm").style.display = "none";
 });
+         // View Customer Details
+         function viewCustomer(index) {
+            const customer = customerData[index];
+            if (!customer) {
+        console.error("Customer not found at index:", index);
+        return;
+    }
+          document.getElementById("viewSno").innerText = customer.sno;
+            document.getElementById("viewCustomerName").innerText = customer.customerName;
+             document.getElementById("viewBranch").innerText = customer.branch;
+             document.getElementById("viewCustomerId").innerText=customer.customerId;
+            document.getElementById("viewContactNo").innerText=customer.contactNo;
+             document.getElementById("viewBillingAddress").innerText=customer.billingAddress;
+             document.getElementById("viewDetails").style.display = "block";
+        }
+          // Close Customer Details
+          function closeModal() {
+            document.getElementById("viewDetails").style.display = "none";
+        }
+        // Edit Customer
+        function editCustomer(index) {
+            const customer = customerData[index];
+            editingIndex = index; // Track the editing index
 
-function searchCustomers() {
-  const query = document.getElementById("searchInput").value.toLowerCase();
-  console.log("Search Query:", query); // Debugging query value
-  
-  const filteredData = customerData.filter(customer => {
-    console.log("Customer being checked:", customer); // Debugging customer
-    return (
-      customer.customerName.toLowerCase().includes(query) ||
-      customer.customerId.toLowerCase().includes(query) ||
-      customer.branch.toLowerCase().includes(query)
-    );
-  });
-
-  console.log("Filtered Data:", filteredData); // Debugging filtered result
-  
-  updateTable(filteredData);
-}
-
-
-   // Handle Customer Form Submit
-   document.getElementById("customerFormDetails").addEventListener("submit", function (e) {
-     e.preventDefault();
-
-     const customer = {
-       sno: document.getElementById("sno").value,
-       branch: document.getElementById("branch").value,
-       customerId: document.getElementById("customerId").value,
-       customerName: document.getElementById("customerName").value,
-       contactNo: document.getElementById("contactNo").value,
-       billingAddress: document.getElementById("billingAddress").value,
-     };
-
-     if (editIndex === null) {
-       customerData.push(customer);
-     } else {
-       customerData[editIndex] = customer;
-     }
-
-     updateTable(customerData);
-     document.getElementById("customerForm").style.display = "none";
-   });
-
-   // Handle Edit button click
-   function editCustomer(index) {
-     const customer = customerData[index];
-     document.getElementById("customerForm").style.display = "block";
-     document.getElementById("formTitle").innerText = "Edit Customer";
-     document.getElementById("sno").value = customer.sno;
-     document.getElementById("branch").value = customer.branch;
-     document.getElementById("customerId").value = customer.customerId;
-     document.getElementById("customerName").value = customer.customerName;
-     document.getElementById("contactNo").value = customer.contactNo;
-     document.getElementById("billingAddress").value = customer.billingAddress;
-     editIndex = index;
-   }
-// Function to display customer details in modal
-function viewCustomer(index) {
-  const customer = customerData[index];
-
-  // Populate modal with customer details
-  document.getElementById("modalSno").innerText = customer.sno;
-  document.getElementById("modalBranch").innerText = customer.branch;
-  document.getElementById("modalCustomerId").innerText = customer.customerId;
-  document.getElementById("modalCustomerName").innerText = customer.customerName;
-  document.getElementById("modalContactNo").innerText = customer.contactNo;
-  document.getElementById("modalBillingAddress").innerText = customer.billingAddress;
-
-  // Show the modal
-  document.getElementById("viewCustomerModal").style.display = "block";
-}
-
-function closeModal() {
-  const viewDetailsElement = document.getElementById("viewDetails");
-  if (viewDetailsElement) {
-    viewDetailsElement.style.display = "none";
-  }
-}
-
-
-// Close modal when clicking outside of the modal content
-window.onclick = function (event) {
-  const modal = document.getElementById("viewCustomerModal");
-  if (event.target === modal) {
-    closeModal();
-  }
-};
-
-function deleteCustomer(index) {
+            document.getElementById("sno").value = customer.sno;
+            document.getElementById("customerName").value = customer.customerName;
+            document.getElementById("branch").value = customer.branch;
+            document.getElementById("customerId").value=customer.customerId;
+            document.getElementById("contactNo").value=customer.contactNo;
+            document.getElementById("billingAddress").value=customer.billingAddress;
+            document.getElementById("customerForm").style.display = "block";
+            document.getElementById("saveid").style.display = "block";
+        }
+        //delete customer
+        function deleteCustomer(index) {
   console.log('Index to delete:', index);
   if (typeof index === 'number' && index >= 0 && index < customerData.length) {
     Swal.fire({
@@ -856,26 +848,21 @@ function deleteCustomer(index) {
   }
 }
 
+        // Search Functionality
+        document.getElementById("searchInput").addEventListener("input", function () {
+            const query = document.getElementById("searchInput").value.trim().toLowerCase();
 
-   function viewCustomer(index) {
-  const customer = customerData[index];
-  const viewDetailsElement = document.getElementById("viewDetails");
+            const filteredCustomers = customerData.filter(customer =>
+                customer.customerName.trim().toLowerCase().includes(query) ||
+                customer.branch.trim().toLowerCase().includes(query)
+            );
 
-  if (!viewDetailsElement) {
-    console.error("The viewDetails element is missing from the DOM.");
-    return;
-  }
+            updateTable(filteredCustomers); // Refresh table with filtered data
+        });
 
-  viewDetailsElement.style.display = "block";
-  document.getElementById("viewSno").innerText = customer.sno;
-  document.getElementById("viewBranch").innerText = customer.branch;
-  document.getElementById("viewCustomerId").innerText = customer.customerId;
-  document.getElementById("viewCustomerName").innerText = customer.customerName;
-  document.getElementById("viewContactNo").innerText = customer.contactNo;
-  document.getElementById("viewBillingAddress").innerText = customer.billingAddress;
-}
-
-function triggerFileImport() {
+      
+//file import
+        function triggerFileImport() {
   const fileInput = document.getElementById("importFileInput");
   if (fileInput) {
     fileInput.click(); // Simulate a click on the hidden file input
@@ -919,16 +906,16 @@ document.getElementById("importFileInput").addEventListener("change", (event) =>
 });
 
 });
-
-   
+  // Initialize Table
+  updateTable(customerData);
  </script>
- <script>
-document.getElementById("cutomerentrypage").addEventListener("click", function() {
-  window.location.href = "customer.html"; // Replace with your target URL or page
-});
-
-
- </script>
+  <script>
+    document.getElementById("cutomerentrypage").addEventListener("click", function() {
+      window.location.href = "customer.html"; // Replace with your target URL or page
+    });
+    
+    
+     </script>
            <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
